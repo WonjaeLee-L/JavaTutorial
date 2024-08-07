@@ -20,7 +20,37 @@ up1
 0부터 12사이면 +10점을 획득하고
 0-1 사이이면 보너스 점수를 획득한다. 보너스 점수는 현재 point의 10% 이다.
  	*/
-
+		/* basic solution
+		 * int point = 20;
+		 * int x = 40;
+		 * if(x>=0 && x <= 12) {
+		 * 		point +=10;
+		 * }else if(x <=20){
+		 * point+=9;
+		 * }else if(x<=30){
+		 * point+=8;
+		 * }else if(x>30){
+		 * point+=7;
+		 * }
+		 */
+		
+		/* 1up solution
+		 * int point = 20;
+		 * int x = 40;
+		 * if(x>=0 && x <= 12){
+		 * 		if(x>=0 && x<=1){
+		 * point += point*0.1;
+		 * }point +=10;
+		 * }	else if(x <=20){
+		 * point+=9;
+		 * }	else if(x<=30){
+		 * point+=8;
+		 * }	else if(x>30){
+		 * point+=7;
+		 * }
+		 * 
+		 */
+		
 		int point=20;
 		int x=10;
 		if(x >= 31) {
