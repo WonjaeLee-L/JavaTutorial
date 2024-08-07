@@ -1,6 +1,6 @@
 package _02if;
 
-public class _00_Q2 {
+public class _00_Q2_School {
 
 	public static void main(String[] args) {
 		/*

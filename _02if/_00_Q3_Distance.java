@@ -1,6 +1,6 @@
 package _02if;
 
-public class _00_Q3 {
+public class _00_Q3_Distance {
 
 	public static void main(String[] args) {
 		/*

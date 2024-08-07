@@ -1,6 +1,6 @@
 package _02if;
 
-public class _00_Q {
+public class _00_Q1_ArrowGame {
 
 	public static void main(String[] args) {
 	/*
