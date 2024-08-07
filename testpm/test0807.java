@@ -93,12 +93,11 @@ public class test0807 {
 		// up3 (9)
 		int[] x1 = {10, 20};
 		int[] y1 = {11, 5};
-				if(y1[0]<=(x1[0]+5) && y1[0]>=(x1[0])) {
+				if(y1[0]<=(x1[0]+5) && (y1[0]+2)>=x1[0]) {
 			System.out.println("hit");
 		} else
 			System.out.println("miss");
-		
-		
+			
 	}
 
 }
