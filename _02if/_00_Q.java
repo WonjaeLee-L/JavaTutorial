@@ -29,7 +29,7 @@ up1
 			System.out.println(point+8);
 		} else if(x >= 13) {
 			System.out.println(point+9);
-		} else if(x <= 12 && x >=2 ) {
+		} else if(x >= 2 ) {
 			System.out.println(point+10);
 		} else if(x >= 0) {
 			System.out.println((point+10)*1.1);
