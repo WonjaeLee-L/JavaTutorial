@@ -90,13 +90,14 @@ public class test0807 {
 		}
 		
 		
-		// up3 (9) y축 고려해야됨
+		// up3 (9)
 		int[] x1 = {10, 20};
 		int[] y1 = {11, 5};
-				if(y1[0]<=(x1[0]+5) && (y1[0]+2)>=x1[0]) {
-			if()
-					
-					System.out.println("hit");
+			if(y1[0]<=(x1[0]+5) && (y1[0]+2)>=x1[0]) {
+			if((y1[1]+2)>=x1[1] && y1[1]<=(x1[1]+6)) {
+				System.out.println("hit");
+			} else
+				System.out.println("miss");
 		} else
 			System.out.println("miss");
 			
