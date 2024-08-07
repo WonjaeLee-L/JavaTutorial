@@ -63,7 +63,7 @@ public class test0807 {
 		System.out.println(a[0] + a[1] + a[2] + a[3] + a[4]);
 		
 		
-		// 7
+		// up1 (7)
 		int[] b = {45,34,64};
 		if((b[0]/10)+(b[0]%10) >= (b[1]/10)+(b[1]%10) && (b[0]/10)+(b[0]%10) >= (b[2]/10)+(b[2]%10)) {
 			System.out.println("0번째 숫자이다.");
@@ -74,7 +74,7 @@ public class test0807 {
 		}
 			
 		
-		// 8
+		// up2 (8)
 		int[] x = {6,5,9};
 		int[] y = {4,10,6};
 		int[] bullet = {3,2};
@@ -88,6 +88,16 @@ public class test0807 {
 		if (x[2]%bullet[0] == 0 && y[2]%bullet[1] == 0) {
 			System.out.println("2번 새");
 		}
+		
+		
+		// up3 (9)
+		int[] x1 = {10, 20};
+		int[] y1 = {11, 5};
+				if(y1[0]<=(x1[0]+5) && y1[0]>=(x1[0])) {
+			System.out.println("hit");
+		} else
+			System.out.println("miss");
+		
 		
 	}
 
