@@ -19,7 +19,7 @@ public class _00_Q2 {
 		 */
 
 		String name = "학생";
-		int age = 20;
+		int age = 17;
 		int score = 65;
 		
 		if(age >= 18) {
@@ -32,10 +32,9 @@ public class _00_Q2 {
 			} else if(score >= 60) {
 				System.out.println("성적은 d, "  + "나이는 " + age + ", 점수는 " + score + ", 이름은 " + name+"*");
 			} else
-				System.out.println("성적은 d, "  + "나이는 " + age + ", 점수는 " + score + ", 이름은 " + name);
-			
-			
-		}
+				System.out.println("성적은 d, "  + "나이는 " + age + ", 점수는 " + score + ", 이름은 " + name);			
+		} else
+			System.out.println("18세 미만은 수강신청을 할 수 없습니다.");
 		
 		
 		
