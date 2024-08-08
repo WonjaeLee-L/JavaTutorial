@@ -11,7 +11,7 @@ public class _00_Q2_for정제 {
 		for(int i=0; i<=4; i++) {
 			System.out.println(a[(i+1)%5]);
 		}
-//	i = 0으로 문제풀기
+//	되도록 i = 0으로 문제풀기
 		
 		
 		System.out.println("-----------");
@@ -42,7 +42,8 @@ public class _00_Q2_for정제 {
 		
 		System.out.println("------------");
 		
-		// for문부터 쓰고보지말고 문제 분석부터
+		// for문부터 쓰고보지말고 문제 분석부터 하고
+		// 어떤게 조건인지 생각하고 시작
 		
 		// 50이상 점수를 모두 합하시오
 		int sum=0;
@@ -63,6 +64,7 @@ public class _00_Q2_for정제 {
 				sum1 += a[i];
 			}
 		}
+		// 결과 앞에만 double 표시하면 실수로 적용
 		System.out.println((double)sum1/cnt1);
 		
 		
@@ -70,6 +72,7 @@ public class _00_Q2_for정제 {
 		int minValue = 101;
 		int sum2 = 0;
 		double cnt2 = 0;
+		// 최저값 찾기
 		for(int i=0; i<5; i++) {
 			if(minValue>a[i]) {
 				minValue = a[i];
@@ -77,9 +80,10 @@ public class _00_Q2_for정제 {
 			sum2 += a[i];
 			cnt2++;
 		}
+		// 평균 값 구하기
 		System.out.println((sum2-minValue)/(cnt2-1));
 		
-		
+		// 누적 합 구하기
 		//		for(int i=0; i<5; i++) {
 		//		if(minValue != a[i]) {
 		//			sum2 += a[i];
