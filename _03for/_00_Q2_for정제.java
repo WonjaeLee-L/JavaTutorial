@@ -83,6 +83,7 @@ public class _00_Q2_for정제 {
 		// 평균 값 구하기
 		System.out.println((sum2-minValue)/(cnt2-1));
 		
+		
 		// 누적 합 구하기
 		//		for(int i=0; i<5; i++) {
 		//		if(minValue != a[i]) {
