@@ -42,6 +42,7 @@ public class _00_Q2_for정제 {
 		
 		System.out.println("------------");
 		
+		// for문부터 쓰고보지말고 문제 분석부터
 		
 		// 50이상 점수를 모두 합하시오
 		int sum=0;
@@ -55,18 +56,18 @@ public class _00_Q2_for정제 {
 		
 		// 평균을 구하시오. 단, 50점 이상만
 		int sum1=0;
-		double cnt1=0;
+		int cnt1=0;
 		for(int i=0; i<5; i++) {
 			if(a[i]>=50) {
 				cnt1++;
 				sum1 += a[i];
 			}
 		}
-		System.out.println(sum1/cnt1);
+		System.out.println((double)sum1/cnt1);
 		
 		
 		// 평균을 구하시오. 단, 최저 점수는 포함하지 마시오
-		int minValue = 200;
+		int minValue = 101;
 		int sum2 = 0;
 		double cnt2 = 0;
 		for(int i=0; i<5; i++) {
@@ -78,6 +79,14 @@ public class _00_Q2_for정제 {
 		}
 		System.out.println((sum2-minValue)/(cnt2-1));
 		
+		
+		//		for(int i=0; i<5; i++) {
+		//		if(minValue != a[i]) {
+		//			sum2 += a[i];
+		//			cnt2++;
+		//		}
+		//			
+		//	}		
 	}
 
 }
