@@ -64,6 +64,7 @@ public class test0807 {
 		
 		
 		// up1 (7)
+		
 		int[] b = {45,34,64};
 		if((b[0]/10)+(b[0]%10) >= (b[1]/10)+(b[1]%10) && (b[0]/10)+(b[0]%10) >= (b[2]/10)+(b[2]%10)) {
 			System.out.println("0번째 숫자이다.");
@@ -72,7 +73,30 @@ public class test0807 {
 		} else if((b[2]/10)+(b[2]%10) >= (b[0]/10)+(b[0]%10) && (b[2]/10)+(b[2]%10) >= (b[1]/10)+(b[1]%10)) {
 			System.out.println("2번째 숫자이다.");
 		}
-			
+
+		// 분해: 연산자 %, / (나머지, 몫)
+		// 합하는 수식: x/10 + x%10
+		// % 연산자 : 홀,짝 구분, 숫자 분해.
+		
+		// 단순 비교 말고 아래의 방식이 있다. 변수 설정 후 최댓값을 바꾸며 구하기 **
+		// int maxValue = 0;
+		// int maxIndex = 0;
+		// int temp = a[0]/10 + a[0]%10;
+		// if(temp>maxValue) {
+		//		maxValue = temp;
+		//		maxIndex = 0;
+		// }
+		// temp = a[1]/10 + a[1]%10;
+		// if(temp>maxValue) {
+		//		maxValue = temp;
+		//		maxIndex = 1;
+		// }
+		// temp = a[2]/10 + a[2]%10;
+		// if(temp>maxValue) {
+		//		maxValue = temp;
+		//		maxIndex = 2;
+		// }
+		
 		
 		// up2 (8)
 		int[] x = {6,5,9};
@@ -88,6 +112,7 @@ public class test0807 {
 		if (x[2]%bullet[0] == 0 && y[2]%bullet[1] == 0) {
 			System.out.println("2번 새");
 		}
+		// 기울기 문제	
 		
 		
 		// up3 (9)
