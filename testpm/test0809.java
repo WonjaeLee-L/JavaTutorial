@@ -108,12 +108,11 @@ public class test0809 {
 	    
 	    
 	    
-	    // 12번 문제
+	    // 12번 문제 0일때를 탐지하는 방법 
 	    int k = 0;
 	    int cntT = 0;
 	    int sumCnt = 0;
 	    int[] arr1 = {1,2,3,0,0,0,1,2,3,4,5,2,2,2,2,0,0,0,0,0,3,3};
-	    // 전에꺼랑 숫자가 같으면 cnt1을 하고
 	    for(int i=0; i<22; i++) {
 	    	if(arr1[i]==arr1[k]) {
 	    		cntT++;
@@ -128,6 +127,18 @@ public class test0809 {
 	    
 	    
 	    // 13번 문제
+	    int k1 = 0;
+	    int cntT1 = 0;
+	    int sumCnt1 = 0;
+	    int[] arr2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,0,0,0,0,0,3,3};
+	    for(int i=0;i<22; i++) {
+	    	if(arr2[i]==arr2[k1]) {
+	    		cntT1++;
+	    	} else if(sumCnt1<cntT1) {
+	    		sumCnt1 = cntT1;
+	    		cntT1=0;
+	    	}
+	    }
 	    
 		
 		
