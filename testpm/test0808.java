@@ -155,13 +155,36 @@ public class test0808 {
 			  for(int i=1;i < 20; ){  
 			   
 			   }
+			   
+			   1. 피보나치수열의 원리 파악(피보나치수패턴 파악)
+			   2. int i 가 처음 피보나치 수(i값의 의미)
+			   3. 다음 피보나치 수 찾기(다음 피보나치수 공식 파악)
+			   		-> 이전 피보나치수 + 현재 피보나치수 = 다음 피보나치수
+			   		i = 현재 피보나치 수 
+			   		
+			   		이전은 0으로 만들기
+			   		int bint=0; // 이전 피.수
+			   		
+			   		다음 피보나치 : bint + i;
+			   					i = bint + i;
+			   	4.현재 i는 1, bint는 이전 0, 다음 i 는 1
+						// 1, 1, 2
+						// 2, 1, 3
 			 */
 		
-			
-//			for(int i=1; i<20; ) {
-//				
-//			}
-			
+			int bint=0; 
+			// 증감식자리는 생략 가능, 비워도 됨
+			for(int i=1; i<20; ) {
+				System.out.println(i);
+				int temp = i; // 현재 i값 백업
+				i = bint + i; // 다음 i값
+				bint = temp; // 이전 bint에 현재 i값 저장
+			}
+			// int temp를 안하게되면 1,1,2,4,8로 나아가게됨
+			// 마지막 bint에 이전i(bint+하기전)을 넣어야하는데 변수가 하나다보니
+			// 두번째 줄에서 변화된 i를 넣게 됨.
+			// 그래서 i가 변하기 전에, temp에 값을 저장하는 단계가 필요
+			// 그러면 변하기 전 i를 bint에 넣을 수 있다.
 			
 			
 			/* 10번 문제
@@ -172,7 +195,10 @@ public class test0808 {
 			
 			 	a ++
 				a = a+1
+				
+				int i도 변수임
 			 */
+			
 			int sumN = 0;
 			int number = 987654321;
 			for(int i = 10;i<=1000000000;i*=10) {
@@ -180,6 +206,14 @@ public class test0808 {
 			}
 			System.out.println(sumN);
 			
+			
+			/*
+			 * int a = 987654321;
+			 * int sum = 0;
+			 * for( ;a>0; ) {
+			 * sum = sum+(a%10);
+			 * a=a/10;
+			 */
 
 	}
 
