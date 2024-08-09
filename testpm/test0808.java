@@ -211,8 +211,8 @@ public class test0808 {
 			 * int a = 987654321;
 			 * int sum = 0;
 			 * for( ;a>0; ) {
-			 * sum = sum+(a%10);
-			 * a=a/10;
+			 * sum += (a%10);
+			 * a /= 10;
 			 */
 
 	}
