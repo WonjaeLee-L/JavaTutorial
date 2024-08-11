@@ -65,25 +65,18 @@ public class test0809 {
 		System.out.println(cntEven);
 		
 		
-		// 9번 문제 다시다시다시다시다시다시다시다시다시다시
-//		String test = "abcdeabce";
-//	    for(int i=0; i < 9; i ++){
-//		char aaa = test.charAt(i);
-//		System.out.println(aaa);
-//	    }
-//		
-//	    int cnt = 0;
-//	    String a = "a";
-//	    String test1 = "abcdeabce";
-//	    for(int i=0; i < 9; i ++){
-//		if(a=="aaa") {
-//			char aaa = test1.charAt(i);
-//			cnt++;
-//		}
-//		
-//		System.out.println(cnt);
-//	    }
-	    //다시다시다시다시다시다시다시다시다시다시다시다시다시
+		 // 9번 문제
+	    int cntA = 0;
+		String test = "abcdeabce";
+	    for(int i=0; i < 9; i ++){
+		char aaa = test.charAt(i);
+		if(aaa=='a') {
+			cntA++;
+		}
+		
+	    }
+	    System.out.println(cntA);
+
 	    
 	    // 10번 문제
 	    // int[] arr = {45,23,25,64,3,24,48};
@@ -106,20 +99,19 @@ public class test0809 {
 	    }
 	    
 	    
-	    
-	    
-	    // 12번 문제 0일때를 탐지하는 방법 
+	    // 12번 문제 
 	    int k = 0;
 	    int cntT = 0;
 	    int sumCnt = 0;
 	    int[] arr1 = {1,2,3,0,0,0,1,2,3,4,5,2,2,2,2,0,0,0,0,0,3,3};
-	    for(int i=0; i<22; i++) {
-	    	if(arr1[i]==arr1[k]) {
+	    for(int i=0; i<arr1.length; i++) {
+	    	if(arr1[i]==arr1[k] && arr1[i] == 0) {
 	    		cntT++;
 	    	} else if(sumCnt<cntT) {
 	    		sumCnt = cntT;
 	    		cntT=0;
-	    	}	    		
+	    	} else
+	    		cntT=0;
 	    	
 	    	k=i;
 	    }
@@ -130,17 +122,49 @@ public class test0809 {
 	    int k1 = 0;
 	    int cntT1 = 0;
 	    int sumCnt1 = 0;
-	    int[] arr2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,0,0,0,0,0,3,3};
-	    for(int i=0;i<22; i++) {
+	    int[] arr2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,2,0,0,0,0,0,3,3};
+	    for(int i=0;i<arr2.length; i++) {
 	    	if(arr2[i]==arr2[k1]) {
 	    		cntT1++;
 	    	} else if(sumCnt1<cntT1) {
 	    		sumCnt1 = cntT1;
 	    		cntT1=0;
-	    	}
+	    		System.out.println(arr2[i]);
+	    	} else
+	    		cntT1=0;
+	    	k1=i;
 	    }
-	    
+	    System.out.println(sumCnt1+1);
 		
+	    	    
+	    // 14번 문제
+	    String ttt = "aabbbcccaaaaddbbbaaaaa";
+	    int sumCntAlphabet = 0;
+	    int cntAlphabet = 0;
+	    int kk = 0;
+	    char alphabetName = 'a';
+	    for(int i=0; i<22; i++) {
+	    	
+	    char alphabet = ttt.charAt(i);
+	    char alphabetB = ttt.charAt(kk);
+	    
+	    	if(alphabet==alphabetB) {
+	    		cntAlphabet++;
+	    		
+	    	} else if(sumCntAlphabet<cntAlphabet) {
+	    		sumCntAlphabet = cntAlphabet;
+	    		alphabetName = alphabetB;
+	    		cntAlphabet = 0;
+	    	} else
+	    		cntAlphabet = 0;
+	    	
+	    	kk = i;
+	    
+	    }
+	    System.out.println("갯수는 "+ sumCntAlphabet+1 + ", 이름은 "+ alphabetName);
+	    
+	    // 15번 문제
+	    
 		
 	}
 
