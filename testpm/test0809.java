@@ -182,7 +182,7 @@ public class test0809 {
 	    // 13번 문제 숫자는 터널의 번호이다. 터널의 길이가 가장 긴 숫자와 길이를 출력하시오. 
 	    int[] arr2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,2,0,0,0,0,0,3,3};
 	    int k1 = arr2[0]; // arr2[0];로(원래 0으로 했었음)
-	    int cntT1 = 0; // 이걸 1로 해야 나중에 조정 안해도 됨.(원래 0으로 했었음)
+	    int cntT1 = 0; 
 	    int sumCnt1 = 0;
 	    int maxIndex1 = 0;
 //	    for(int i=0;i<arr2.length; i++) {
@@ -205,8 +205,7 @@ public class test0809 {
 	    
 	    for(int i=0; i<arr2.length;i++) {
 	    	if(arr2[i]==k1) {					//A
-	    		cntT1++;
-	    		
+	    		cntT1++;	    		
 	    	} else {
 	    		cntT1=1;
 	    		k1=arr2[i];
@@ -222,50 +221,86 @@ public class test0809 {
     	System.out.println("터널의 숫자는 "+maxIndex1);
 	    	    
     	
-	    // 14번 문제 가장 긴 터널의 알파벳 이름과 숫자를 찾으세요
-	    String ttt = "aabbbcccaaaaddbbbaaaaa";
-	    int sumCntAlphabet = 0;
-	    int cntAlphabet = 0;
-	    int kk = 0;
-	    char alphabetName = 'a';
-	    for(int i=0; i<22; i++) {
-	    	
-	    char alphabet = ttt.charAt(i);
-	    char alphabetB = ttt.charAt(kk);
+    	
+	    // 14번 문제 가장 긴 터널의 알파벳 이름과 숫자를 찾으세요/ 15번 문제 압축하시오. 압축 하는 방법 a2b3c3a4d2b3a5
+    	
+//	    String ttt = "aabbbcccaaaaddbbbaaaaa";
+//	    int sumCntAlphabet = 0;
+//	    int cntAlphabet = 0;
+//	    int kk = 0;
+//	    char alphabetName = 'a';
+//	    for(int i=0; i<22; i++) {
+//	    	
+//	    char alphabet = ttt.charAt(i);
+//	    char alphabetB = ttt.charAt(kk);
+//	    
+//	    	if(alphabet==alphabetB) {
+//	    		cntAlphabet++;
+//	    		
+//	    	} else if(sumCntAlphabet<cntAlphabet) {
+//	    		sumCntAlphabet = cntAlphabet;
+//	    		alphabetName = alphabetB;
+//	    		cntAlphabet = 0;
+//	    	} else
+//	    		cntAlphabet = 0;
+//	    	
+//	    	kk = i;
+//	    
+//	    }
+//	    System.out.println("갯수는 "+ sumCntAlphabet+1 + ", 이름은 "+ alphabetName);
+    	
+	    // 설계도, 만들어진 건물이 있다. 객체는 설계도를 가지고 건물을 만드는것/ 객체는 변수와 메소드로 구성되어있다.
+	    // 건물을 만들때 new + 설계도 이걸 합쳐진게 건물
+	    // 클래스는 설계도를 만드는것
 	    
-	    	if(alphabet==alphabetB) {
-	    		cntAlphabet++;
-	    		
-	    	} else if(sumCntAlphabet<cntAlphabet) {
-	    		sumCntAlphabet = cntAlphabet;
-	    		alphabetName = alphabetB;
-	    		cntAlphabet = 0;
-	    	} else
-	    		cntAlphabet = 0;
-	    	
-	    	kk = i;
+	    //자료형/ 변수/ = 집짓겠다/ 이 설계도를 기반으로/
+	    // *****객체 : 설계도가 있다. 이 설계도를 가지고 실제 프로그램에서 사용할 수 있게 클래스를 가지고 객체를 만든다.*****
+
 	    
-	    }
-	    System.out.println("갯수는 "+ sumCntAlphabet+1 + ", 이름은 "+ alphabetName);
-	    
-	    String ttt1 = "aabbbcccaaaaddbbbaaaaa";
-	    for(int i=0; i<ttt1.length(); i++) {
-	    	char a = ttt1.charAt(i);
-	    	System.out.println(a);
-	    }
+
 	    
 	    // ttt는 현재 객체. 참조타입. 기능을 가지고 있다. charAt(i)이용
 	    // 가장 긴 터널의 알파벳 이름과 숫자
 	    // 배열에서는 value를 하나씩 가져옴
 	    // 1. 문자열의 문자를 가져온다.
 	    // 			-> 문자를 첫번째부터 하나씩 가져온다.
+	    //
+    	
+	    String ttt1 = new String("aabbbcccaaaaddbbbaaaaa");	// 이게 원래의 패턴
+	    String resultZip="";
+	    char k3 = ttt1.charAt(0); 
+	    int cntT3 = 0;
+	    int sumCnt3 = 0;
+	    int maxIndex3 = 0;
 	    
 	    
 	    
+	    for(int i=0; i<ttt1.length(); i++) {
+	    	if(ttt1.charAt(i)==k3) {
+	    		cntT3++;	    		
+	    	} else {
+	    		resultZip = resultZip + (char)k3 + cntT3;		// (char) -> 캐스팅(형변환)
+	    		cntT3=1;
+	    		k3=ttt1.charAt(i);
+	    	}	    	
+	    	if(sumCnt3 < cntT3) {		// 15번 문제에서는 불필요
+	    		sumCnt3 = cntT3;
+	    		maxIndex3 = k3;
+	    	}
+	    	
+	    }
+	    resultZip = resultZip + (char)k3 + cntT3; // 15 번의 경우 추가해야 a 5개 된다.
+	    System.out.println(resultZip);	// 15번 문제 확인
+	    System.out.println(sumCnt3 + "/" + (char)k3);	// 14번 문제 확인
 	    
 	    
-	    // 15번 문제 압축하시오. 압축 하는 방법 a2b3c3a4d2b3a5
-	    // String ttt ="aabbbcccaaaaddbbbaaaaa";
+	    
+//	    char a1 = 'a';
+//	    char a2 = 'p';
+//	    char a3 = 'p';
+//	    char a4 = 'l';
+//	    char a5 = 'e';
+//	    System.out.println((a1+a2+a3+a4+a5)); // 이러면 apple 출력. 불편하니까 String으로
 	    
 	    
 		
