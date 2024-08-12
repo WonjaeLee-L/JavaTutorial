@@ -89,19 +89,27 @@ public class test0809 {
 			sysout(aaa);
 		    }
 		
-		   위 코드를 분석하여 a문자열에 a가 몇개 있는지 구하는 프로그램을 작성하세요
+		   위 코드를 분석하여 test문자열에 a가 몇개 있는지 구하는 프로그램을 작성하세요
 		 */
+		// 문자열 부품이 제공하는 기능(method)을 이용하여 문제 해결 .은 참조(냉장고.open door)
+		// . 뒤에가 기능이다 ***
+		// 그 중에 charAt이라는 기능은 문자를 하나씩 가져오는 것.
 	    int cntA = 0;
-		String test = "abcdeabce";
-	    for(int i=0; i < 9; i ++){
-		char aaa = test.charAt(i);
-		if(aaa=='a') {
+		String test = "abcdeabce";	// 선언문(자료형 변수=초기값) 연산자는 자료형에 따라서 정해짐(Ex 문자열은 사칙연산 불가)
+	    for(int i=0; i < 9; i ++){	// 결론: 변수는 test, 문자열의 값, 초기 문자열은 "abcdeabce"
+		char aaa = test.charAt(i);	
+		if(aaa=='a') {				
 			cntA++;
 		}
 		
 	    }
 	    System.out.println(cntA);
-	    
+	    // 왜 변수를 만들었나? 자료 수집
+	    // 대문자로 시작하는 String의 변수는 변수. 가능. 소문자로 시작하면 변수. 불가능
+	    // 자료 형 중에서 -> **원시타입의 자료형) int, char, boolean, double, float : .을 사용할 수 없다.
+	    //			   -> **참조타입의 자료형) 소문자가 아닌 대문자로 시작하는 자료형은 변수. 을 사용할 수 있다.(예외: 배열은 . 사용 가능)
+	    //								객체는 참조 타입과 밀접한 관련이 있다.
+	    // 객체(누가 미리 만들어 놓은 제품.을 그대로 씀. 그걸 사용하는 방법이 있다.): method (.은 참조라고 부름)
 	    
 
 	    
@@ -239,6 +247,22 @@ public class test0809 {
 	    
 	    }
 	    System.out.println("갯수는 "+ sumCntAlphabet+1 + ", 이름은 "+ alphabetName);
+	    
+	    String ttt1 = "aabbbcccaaaaddbbbaaaaa";
+	    for(int i=0; i<ttt1.length(); i++) {
+	    	char a = ttt1.charAt(i);
+	    	System.out.println(a);
+	    }
+	    
+	    // ttt는 현재 객체. 참조타입. 기능을 가지고 있다. charAt(i)이용
+	    // 가장 긴 터널의 알파벳 이름과 숫자
+	    // 배열에서는 value를 하나씩 가져옴
+	    // 1. 문자열의 문자를 가져온다.
+	    // 			-> 문자를 첫번째부터 하나씩 가져온다.
+	    
+	    
+	    
+	    
 	    
 	    // 15번 문제 압축하시오. 압축 하는 방법 a2b3c3a4d2b3a5
 	    // String ttt ="aabbbcccaaaaddbbbaaaaa";
