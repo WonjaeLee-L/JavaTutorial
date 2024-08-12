@@ -9,6 +9,7 @@ public class test0809 {
 				System.out.println(i);
 			}
 		}
+		// 1번 분석
 		// 그냥 for문을 작성한다. 로 분석을 시작하지말고
 		// 처음부터 초기값 100, 초건은 <1000, 증감식 i++로 바로 생각
 		// 그 다음 바로 sysout해서 한 번 확인.
@@ -24,6 +25,7 @@ public class test0809 {
 			}
 		}
 		System.out.println(sumOdd);
+		// 2번 분석
 		// 1부터 100까지 for문 작성
 		// 초기값 1, 조건 <= 100, i++
 		// 홀수 판별: i값이 홀수인지 %2==1
@@ -46,10 +48,12 @@ public class test0809 {
 				System.out.println(arr[i]);
 			}
 		}
-		// for문을 작성한다.
+		// 4번 분석
+		// 1. for문을 작성한다.
 		// 초기값은 0, 조건 <7(배열의 길이)(arr.length), i++
 		// i를 배열의 index로 본다.
-		
+		// 2. arr[i]%2==0 조건
+		// 3. 출력
 		
 		// 6번 문제 배열에서 배열의 값이 홀수 인 곳의 인덱스만 출력하시오.
 		for(int i = 0; i<7; i++) {
@@ -97,6 +101,8 @@ public class test0809 {
 		
 	    }
 	    System.out.println(cntA);
+	    
+	    
 
 	    
 	    // 10번 문제 배열에서 가장 큰 값과 가장 큰 값이 있는 인덱스를 출력하시오.
@@ -110,7 +116,10 @@ public class test0809 {
 	    	}
 	    }
 	    System.out.println("가장 큰 값은"+maxValue+"이고, 그 때의 index는 "+index+"이다.");
-	    
+	    // 10번 분석
+	    // 1. for문 작성 i=0, i<arr.length, i++. i는 배열의 index로 본다.
+	    // 2. 배열에서 가장 큰 값 -> 시나리오 직접 실행. 가장 큰 값 정보 필요 -> 선언
+	    // 3. i의 value값과 최대값을 저장한 변수랑 비교 arr[i]<max시 최대값 변경
 	    
 	    // 11번 문제 범인은 100부터 999까지 숫자중에 여러명이다. 
 	    // 범인의 특징은 숫자의 각자릿수를 더한 값이 짝수이다.  범인의 숫자를 모두 찾으시오.
@@ -120,15 +129,17 @@ public class test0809 {
 	    	}
 	    }
 	    
-	     
+	    // *****12 ~ 15 중요***** 
 	    // 12번 문제  0은 터널이다. 가장 긴 터널의 길이를 구하시오.
 	    int k = 0;
 	    int cntT = 0;
 	    int sumCnt = 0;
 	    int[] arr1 = {1,2,3,0,0,0,1,2,3,4,5,2,2,2,2,0,0,0,0,0,3,3};
 	    for(int i=0; i<arr1.length; i++) {
-	    	if(arr1[i]==arr1[k] && arr1[i] == 0) {
+//	    	System.out.println("현재번호"+arr1[i]);
+	    	if(arr1[i] == 0) {
 	    		cntT++;
+	    				//if(arr1[i]==arr1[k] && arr1[i] == 0)에서 arr1[i] == 0만 필요함을 확인
 	    	} else if(sumCnt<cntT) {
 	    		sumCnt = cntT;
 	    		cntT=0;
@@ -137,28 +148,72 @@ public class test0809 {
 	    	
 	    	k=i;
 	    }
-	    System.out.println(sumCnt+1);
+	    System.out.println(sumCnt);
+	    				//System.out.println(sumCnt+1); 에서 1을 더하지 않아도 해결
+	    
+	    // 12번 분석
+	    // 1. for문으로 배열순회. 초기값 i = 0, 조건 <배열의 길이, i++. i는 배열의 index로 본다.
+	    // 2. 현재 번호: arr1[i] -> 터널인지 아닌지. arri1[i]==0 이면 터널이다.
+	    //							-> 참 : 카운팅 -> 변수
+	    //							-> 거짓 : 카운팅 cnt -> 초기화
+	    // 3. 제일 긴 터널의 길이를 저장. cnt++아래에 판단. cnt증가할때마다 계속 비교
+	    // A에서는 터널 카운팅. B에서는 최대길이 판별
+	    for(int i=0;i<arr1.length;i++) {
+	    	if(arr1[i]==0) {	//A
+	    		cntT++;
+	    	}else cntT=0;
+	    	
+	    	if(cntT>sumCnt) {	//B
+	    		sumCnt=cntT;
+	    	}
+	    }
+	    System.out.println(sumCnt);
+	    // 위와 같은 코드로 정리할 수 있다.
 	    
 	    
 	    // 13번 문제 숫자는 터널의 번호이다. 터널의 길이가 가장 긴 숫자와 길이를 출력하시오. 
-	    int k1 = 0;
-	    int cntT1 = 0;
-	    int sumCnt1 = 0;
 	    int[] arr2 = {1,2,3,0,0,0,1,2,2,4,2,2,2,2,2,2,0,0,0,0,0,3,3};
-	    for(int i=0;i<arr2.length; i++) {
-	    	if(arr2[i]==arr2[k1]) {
+	    int k1 = arr2[0]; // arr2[0];로(원래 0으로 했었음)
+	    int cntT1 = 0; // 이걸 1로 해야 나중에 조정 안해도 됨.(원래 0으로 했었음)
+	    int sumCnt1 = 0;
+	    int maxIndex1 = 0;
+//	    for(int i=0;i<arr2.length; i++) {
+//	    	if(arr2[i]==arr2[k1]) {
+//	    		cntT1++;
+//	    	} else if(sumCnt1<cntT1) {
+//	    		sumCnt1 = cntT1;
+//	    		cntT1=0;
+//	    		System.out.println(arr2[i]);
+//	    	} else
+//	    		cntT1=0;
+//	    	k1=i;
+//	    }
+//	    System.out.println(sumCnt1+1);
+	    // 13번 분석
+	    // 1. for문으로 배열순회. 초기값 i = 0, 조건 <배열의 길이, i++. i는 배열의 index로 본다.
+	    // 2.현재 번호: arr2[i] -> 연속된 터널인지 확인 -> 이전 터널에대한 정보 필요
+	    // 3. A에서는 터널 카운팅. b에서는 최대길이 판별
+	    
+	    
+	    for(int i=0; i<arr2.length;i++) {
+	    	if(arr2[i]==k1) {					//A
 	    		cntT1++;
-	    	} else if(sumCnt1<cntT1) {
+	    		
+	    	} else {
+	    		cntT1=1;
+	    		k1=arr2[i];
+	    	}
+//	    	System.out.println(i+"/"+cntT1);	
+	    	if(sumCnt1<cntT1) {					//B
 	    		sumCnt1 = cntT1;
-	    		cntT1=0;
-	    		System.out.println(arr2[i]);
-	    	} else
-	    		cntT1=0;
-	    	k1=i;
+	    		maxIndex1 = k1;
+	    	}
+	    	
 	    }
-	    System.out.println(sumCnt1+1);
-		
+	    System.out.println("터널의 길이는 "+sumCnt1);
+    	System.out.println("터널의 숫자는 "+maxIndex1);
 	    	    
+    	
 	    // 14번 문제 가장 긴 터널의 알파벳 이름과 숫자를 찾으세요
 	    String ttt = "aabbbcccaaaaddbbbaaaaa";
 	    int sumCntAlphabet = 0;
