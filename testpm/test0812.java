@@ -97,9 +97,13 @@ public class test0812 {
 		// 수식 계산 규칙은 연산자 우선순위 없이 앞에서 부터 차례대로 계산한다.
 		// 지금까지 공부한 내용으로 해결하시고, 형변환만 검색이 가능합니다. 
 		// 메서드는 최대한 적게 사용하세요
-		String a ="23-56+45*2-56";
-		char t = 'ETB';
-		
+//		String a ="23-56+45*2-56";
+//		int s = Integer.valueOf(a);
+//		for(int i = 0; i < a.length(); i++) {
+//			
+//		}
+//		Integer.toString()
+//		
 		
 		
 		// 23 ETB, 56 8, 45 -, 2 STX, 56 8
@@ -152,14 +156,14 @@ public class test0812 {
 		                                     // 즉 0 - 44까지 중 랜덤한 숫자 하나를 선택하여 리턴함.
 		                                     // 로또 번호는 1-45까지 이므로 리턴값이 +1로 보정함
 		                                     // 리턴값을 보정하여  num변수의 값에 대입
-//		Random r = new Random();
-//		int num = r.nextInt(45)+1;
-//		int[] lotto = {};
-//		for(int i=0; i<6; i++) {
-//			lotto[i] = num;
-//			System.out.println(lotto[i]);
-//		}
-		
+		Random r = new Random();
+		int num = r.nextInt(45)+1;
+		int[] lotto = {};
+		for(int i=0; i<6; i++) {
+			lotto[i] = num;
+			
+		}
+		System.out.println(lotto[0]);
 		
 		
 		System.out.println("---");
@@ -175,18 +179,19 @@ public class test0812 {
 		// 조건 : 형변환은 사용하지 않는다. 메서드는  charAt()만 사용한다.
 		int cnt11 = 0;
 		String a4 = "6/4/3/2/5/1/4/5/6/7/8/9/1/2/3/4/5/6";
-		String[] a4 = a4.split("/");
+		String[] a5 = a4.split("/");
 		
-		int[] a5 = new int[10];
-		for(int i=0; i<a4.length(); i++) {
-			if(a4.charAt(0)==a4.charAt(i)) {
+		int[] a6 = new int[10];
+		for(int i=0; i<a5.length; i++) {
+			if(i%2==0 && a4.charAt(0)==a4.charAt(i)) {
 				cnt++;
+				a6[i] = cnt++;
 			}
-			a5[0]=cnt++;
+			
 			
 		}cnt=0;
-		System.out.println(a5[0]);
-		
+		System.out.println(a6[0]);
+		System.out.println(a5[1]);
 		
 		
 		// 특별 2
