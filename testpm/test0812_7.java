@@ -1,6 +1,6 @@
 package testpm;
 
-public class test0812_7 {
+public class test0812_7{
 
 	public static void main(String[] args) {
 		// 7번 문제
@@ -15,10 +15,7 @@ public class test0812_7 {
 			if(a1[i+1]<a1[i]) {
 				a1[i+1] = a1[i];
 			}
-			if(a1[i+1]>a1[5]) {
-				a1[5] = a1[i+1];
-			}	
-				
+					
 		}
 		System.out.println(a1[5]);
 
