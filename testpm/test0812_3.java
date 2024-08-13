@@ -11,6 +11,7 @@ public class test0812_3 {
 		String word ="gehoudfkimjnlvy";
 		int[] letter2={8,12,3,13,1,14,3,4};
 		for(int i=0; i<letter2.length; i++) {
+			
 			System.out.print(word.charAt(letter2[i]));
 		}
 
