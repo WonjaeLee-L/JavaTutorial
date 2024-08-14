@@ -24,20 +24,20 @@ public class test0814_5번_6번 {
 
 		int maxCnt=0;
 		int maxNum=0;
-		int[] lottoNum = new int[46];
+		int[] lottoNum = new int[45];	//0-45
 		for(int i=0; i<10000; i++) {
 			int num = r.nextInt(45);
 			lottoNum[num]++;
 		}
-		for(int i=0; i<46; i++) {
-		
-			if(maxCnt<lottoNum[i]) {
+		for(int i=0; i<45; i++) {
+		// =
+			if(maxCnt<=lottoNum[i]) {
 				maxCnt = lottoNum[i];
 				maxNum = i;
 			}
 				
 		}
-		System.out.println("오늘의 추천 로또 번호: "+ maxNum + ", 뽑힌 횟수: "+ maxCnt);
+		System.out.println("오늘의 추천 로또 번호: "+ (maxNum+1) + ", 뽑힌 횟수: "+ maxCnt);
 	}
 
 }

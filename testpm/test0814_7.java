@@ -19,7 +19,7 @@ public class test0814_7 {
 
 		int[] jobTime ={40,32,4,16,5,8};
 		
-		for(int j=0; j<11; j++) {
+		for(int j=0; j<10; j++) {
 		
 		
 		for(int i=0; i<6; i++) {
