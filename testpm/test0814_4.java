@@ -16,7 +16,7 @@ public class test0814_4 {
 		Random r = new Random();
 		
 		for(int i=0; i<10; i++) {
-			int k = r.nextInt(99);
+			int k = r.nextInt(100);
 			if(k%2==0) {
 				arr[i] = k;
 			}

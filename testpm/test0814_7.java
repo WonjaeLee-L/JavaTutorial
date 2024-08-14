@@ -16,13 +16,23 @@ public class test0814_7 {
 		// 0, 1, 2, 3, 4, 5: 사람의 번호
 		// value는 index사람이 업무를 마치기 위한 시간.
 		// 0번은 10시간. 1번은 8시간, 2번은 1시간, 3번은 4시간, 4번은 5/4시간, 5번은 2시간
-		int sum = ((40+32+4+16+5+8)/4)+1;
-		int[] work= new int[sum];
+
 		int[] jobTime ={40,32,4,16,5,8};
-		System.out.println(sum);
+		
+		for(int j=0; j<11; j++) {
+		
+		
 		for(int i=0; i<6; i++) {
-			work[]= {
-			jobTime[i]/4 
+			jobTime[i] = jobTime[i]-4;
+			
+			if(jobTime[i]>=0) {
+				System.out.println(i + "번 사람, 남은 시간: " + (jobTime[i]));
+			}else if(jobTime[i]>=-3) {
+				System.out.println(i + "번 사람, 남은 시간: " + 0);
+			}
+			
+		}
+		
 		}
 		
 	}

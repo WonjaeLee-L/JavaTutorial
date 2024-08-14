@@ -18,20 +18,26 @@ public class test0814_5번_6번 {
 		}
 		
 		System.out.println("-----6번 문제-----");
-		int cnt=0;
-		int[] lottoNum = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45};
-		for(int i=0; i<10001; i++) {
+		// 컴퓨터는 랜덤으로 로또 번호를 10000번 뽑는다.
+		// 가장 많이 뽑힌 로또 번호가 오늘의 추천 로또 번호이다.
+		// 오늘의 추천 로또 번호 하나를 출력하시오.  만약 로또 번호가 같은 횟수로 나왔을 경우에는 큰 숫자가 우선한다. 
+
+		int maxCnt=0;
+		int maxNum=0;
+		int[] lottoNum = new int[46];
+		for(int i=0; i<10000; i++) {
 			int num = r.nextInt(45);
-			
+			lottoNum[num]++;
 		}
-		for(int i=0; i<10001; i++) {
-			int num = r.nextInt(45); // 0-45까지만 뽑아. 나중에 더해줄거
-			if(i==num) {
-				lottoNum[i]=num;
-				cnt++;
-			}
-		}
+		for(int i=0; i<46; i++) {
 		
+			if(maxCnt<lottoNum[i]) {
+				maxCnt = lottoNum[i];
+				maxNum = i;
+			}
+				
+		}
+		System.out.println("오늘의 추천 로또 번호: "+ maxNum + ", 뽑힌 횟수: "+ maxCnt);
 	}
 
 }

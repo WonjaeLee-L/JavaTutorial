@@ -23,16 +23,15 @@ public class test0814_8 {
 						
 			for(int j = 0; j<10; j++) {
 
-				if(k>46 || k<1) {				
+				if(k>45 || k<1) {				
 					System.out.println("범위 오류");
-					in.nextLine();
-					k = 0;
+					System.out.println((i + 1) + "번 입력하세요");
+
 					k = in.nextInt();
+					in.nextLine(); //*** 엔터 누르기 전과 후를 나눠주는 역할
 					
-					continue;
 				}else {
-//					k = in.nextInt();
-//					lotto[i] = k;
+
 					break;
 				}				
 			}
