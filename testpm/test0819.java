@@ -110,34 +110,26 @@ public class test0819 {
 		System.out.println("a 배열의 값에는 "+ 49 + "번호보다 큰 숫자가 "+sumB2+"개 있습니다.");
 		
 		// 7.
-		// 거스름돈 구하기   10000원짜리 0개, 1000원짜리 0 개, 100짜리 0개, 10짜리 0개,   조건 : /나 %연산자는 각각 최대 두 번씩 사용가능
+		// 거스름돈 구하기   10000원짜리 0개, 1000원짜리 0 개, 100짜리 0개, 10짜리 0개
+		// 조건 : /나 %연산자는 각각 최대 두 번씩 사용가능
 		// 단, 거스름돈은 만천원이 최대 값이다. 
 		// int money=4570;  // 가격
 		// int pay = 10000;  //지불금액
 		System.out.println("-----7번 문제-----");
 		int money=4570;
-		int pay=10000;	
-		int charge = pay-money; // 5430
-		int chargeI = charge/10;//543
-		for(int i=1; i<1000; i=i*10) {
-			int a11 = chargeI%(10*i);	// i=1, 3. i=10, 43, i100 543 
-			if(a11==0) {
-				System.out.println("1000원짜리 1개");
-			}
-			if(a11>10) {
+		int pay=15000;
+		
+		int charge = pay-money;
+		int chargeI = charge/10;
+		for(int i=1; i<=1000; i=i*10) {
+			int a11 = chargeI%(10*i); 
+			if(a11>=1000) {
+				System.out.println(10*i+"원짜리 1개");
+			}else if(a11>10) {
 				System.out.println(10*i+"원 짜리 "+a11/(1*i)+"개");
 			}else
 				System.out.println(10*i+"원 짜리 "+a11%(10*i)+"개");
-			
-//			for(int j=0; j<3; j++ ) {
-//				a11
-//			}
-		}
-		
-//			charge/10 
-//			여기다가 /100에서 /10과 %10 만, 천
-//			%100에서 /10과 %10 백, 십
-		
+		}		
 		
 		
 		// 8.
@@ -146,32 +138,25 @@ public class test0819 {
 		// 가로에 같은 캐릭터가 3개 이상이면 제거 대상이다.
 		// 제거 대상 캐릭터 번호와 갯수, 시작위치 인덱스를 모두 출력하시오.
 		System.out.println("-----8번 문제-----");
-		// 
 		int cntC = 0;
-		int sumCnt = 0;
 		int numberC = 0;
 		int indexC = 0;
-		int[] pang={1,0,0,0,2,3,4,4,6,2,2,2,2,5};
-		for(int i=0; i<pang.length; i++) {
-			for(int j=i+1; j<pang.length; j++) {
+		int[] pang={1,0,0,0,2,3,4,4,6,2,2,2,2,1,0};
+		for(int i=0; i<pang.length-1; i++) {
+			for(int j=i+1; j<i+2; j++) {
 				if(pang[i]==pang[j]) {
-					cntC++;
-					
-				}else if(cntC>=2){
-					sumCnt = sumCnt+cntC;
+					cntC++;					
+				}else if(cntC>=2){					
 					numberC = pang[i];
 					indexC = i;
-					System.out.println("캐릭터 번호는 "+numberC+", 시작 위치 인덱스는 "+indexC+", 갯수는 "+sumCnt);
+					System.out.println("제거 대상의 캐릭터 번호는 "+numberC+", 시작 위치 인덱스는 "+(indexC-cntC)+", 갯수는 "+(cntC+1));
 					cntC=0;
-					sumCnt=0;
 					numberC=0;
 					indexC=0;
 					break;
+				}else {
+					cntC=0;
 				}
-//				
-//				if(sumCnt>=3) {
-//					System.out.println("캐릭터 번호는 "+numberC+", 시작 위치 인덱스는 "+indexC+", 갯수는 "+sumCnt);
-//				}				
 			}			
 		}
 		
@@ -197,7 +182,7 @@ public class test0819 {
 					break;					
 				}
 			}
-		}System.out.println(Al+", "+(sumAl+1));
+		}System.out.println("가장 긴 터널의 알파벳: "+Al+", 터널의 길이: "+(sumAl+1));
 		
 		
 		// 10.
@@ -210,10 +195,9 @@ public class test0819 {
 		// size가 2일경우에 7개이다. 
 		System.out.println("-----10번 문제-----");
 		int[] arr = {1,0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,1};
-		int size=2;
+//		int size=2;
 		int cntAA = 0;
-		for(int i=0; i<arr.length-1; i++) {
-			
+		for(int i=0; i<arr.length-1; i++) {			
 				for(int j=i+1; j<i+2; j++) {
 					if(arr[i]==arr[j] && arr[i]==0) {
 						cntAA++;
@@ -221,7 +205,8 @@ public class test0819 {
 						break;
 					}
 			}
-		}System.out.println(cntAA);
+		}System.out.println(cntAA+"개");
+		
 		
 		// 11.
 		// 000*
@@ -252,13 +237,9 @@ public class test0819 {
 			}
 		}
 		
+		
 		// 12.
-			
-			
-		System.out.println("-----11번 문제-----");
-		
-		
-		
+		System.out.println("-----12번 문제-----");
+		System.out.println("9번에서 for문 두 개 사용함");
 	}
-
 }
