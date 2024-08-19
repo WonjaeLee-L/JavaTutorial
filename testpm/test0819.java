@@ -146,25 +146,116 @@ public class test0819 {
 		// 가로에 같은 캐릭터가 3개 이상이면 제거 대상이다.
 		// 제거 대상 캐릭터 번호와 갯수, 시작위치 인덱스를 모두 출력하시오.
 		System.out.println("-----8번 문제-----");
-//		int[] pang={1,0,0,0,2,3,4,4,6,2,2,2,2,5};
-//		for(int i=0; i<pang.length; i++) {
-//			for(int j=0; j<3; j++) {
-//				if(pang[j+1]=pang[j])
-//			}
-//		}
-//		
+		// 
+		int cntC = 0;
+		int sumCnt = 0;
+		int numberC = 0;
+		int indexC = 0;
+		int[] pang={1,0,0,0,2,3,4,4,6,2,2,2,2,5};
+		for(int i=0; i<pang.length; i++) {
+			for(int j=i+1; j<pang.length; j++) {
+				if(pang[i]==pang[j]) {
+					cntC++;
+					
+				}else if(cntC>=2){
+					sumCnt = sumCnt+cntC;
+					numberC = pang[i];
+					indexC = i;
+					System.out.println("캐릭터 번호는 "+numberC+", 시작 위치 인덱스는 "+indexC+", 갯수는 "+sumCnt);
+					cntC=0;
+					sumCnt=0;
+					numberC=0;
+					indexC=0;
+					break;
+				}
+//				
+//				if(sumCnt>=3) {
+//					System.out.println("캐릭터 번호는 "+numberC+", 시작 위치 인덱스는 "+indexC+", 갯수는 "+sumCnt);
+//				}				
+			}			
+		}
 		
 		
+		// 9.
+		// 가장 긴 터널의 알파벳 이름과 숫자를 찾으세요 <이중For사용>
+		System.out.println("-----9번 문제-----");
+		String ttt ="aabbbcccaaaaddbbbaaaaaE";
+		int sumAl = 0;
+		char Al = 'F';
+		int cntT = 0;
+		for(int i=0; i<ttt.length(); i++) {
+			for(int j=i+1; j<ttt.length(); j++) {			
+				if(ttt.charAt(i)==ttt.charAt(j)) {
+					cntT++;			
+				} else if(cntT>=sumAl) {
+					sumAl=cntT;
+					Al=ttt.charAt(i);
+					cntT=0;
+					break;
+				}else {
+					cntT=0;
+					break;					
+				}
+			}
+		}System.out.println(Al+", "+(sumAl+1));
 		
 		
+		// 10.
+		// 난건물주  <이중For사용>
+		// int[] arr = {1,0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,1}
+		// int size=2;
+		// arr 배열에서 0이 의미하는 것은 공터이다. 
+		// size는 건물의 크기 이다. 건물은 하나만 짓는다. 공터는 연속적으로 있어야 한다. 
+		// size 설정값에 따라 공터에 건물을 지을 수 있는 위치는 모두 몇개인가?
+		// size가 2일경우에 7개이다. 
+		System.out.println("-----10번 문제-----");
+		int[] arr = {1,0,0,0,1,1,1,0,0,0,0,1,1,1,1,0,0,0,1};
+		int size=2;
+		int cntAA = 0;
+		for(int i=0; i<arr.length-1; i++) {
+			
+				for(int j=i+1; j<i+2; j++) {
+					if(arr[i]==arr[j] && arr[i]==0) {
+						cntAA++;
+					}else {
+						break;
+					}
+			}
+		}System.out.println(cntAA);
 		
+		// 11.
+		// 000*
+		// 00***
+		// 0*****
+		// *******
+		// 0*****
+		// 00***
+		// 000*
+		System.out.println("-----11번 문제-----");
+		for(int l=1; l<8; l++) {			
+			if(l<5) {		
+					for(int i=3; i-(l-1)>0; i--) {
+							System.out.print("0");				
+					}
+					for(int j=1; j<(2*l); j++) {
+						System.out.print("*");
+					}
+					System.out.println("");
+			}else {		
+					for(int j=3; j<l-1; j++) {
+						System.out.print("0");
+					}
+					for(int i=15; i>l*2; i--) {
+							System.out.print("*");				
+					}
+					System.out.println();
+			}
+		}
 		
-		
-		
-		
-		
-		
-		
+		// 12.
+			
+			
+		System.out.println("-----11번 문제-----");
 		
 		
 		
