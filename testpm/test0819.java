@@ -8,6 +8,9 @@ public class test0819 {
 		// 2*1=2  2*2=4   2*3=6
 		// 3*1=3  3*2=6   3*3=9
 		// 4*1=4  4*2=8   4*3=12
+		// i = 1, j = 1, 2, 3
+		// i = 2, j = 1, 2, 3
+		// ...
 		System.out.println("-----1번 문제-----");
 		for(int i=1; i<5; i++) {
 			for(int j=1; j<4; j++) {
@@ -22,7 +25,20 @@ public class test0819 {
 		// ****
 		// ***
 		// **
-		// *				
+		// *
+		// i: 줄찍는것, j: 열찍는것
+		// i 0, j 0,1,2,3,4
+		// i 1, j 0,1,2,3
+		// i 2, j 0,1,2
+		// i 3, j 0,1
+		// i 4, j 0
+		// 수식: 첫번째로 i값을 먼저 찾기
+		// i=0일때 j의 마지막은 4
+		// i=1				3
+		// i=2 				2
+		// i=3				1
+		// i=4				0
+		// 조건식 j<=4-i
 		System.out.println("-----2번 문제-----");
 		for(int i=0; i<5; i++) {
 			for(int j=4; j>=i; j--) {
@@ -37,6 +53,36 @@ public class test0819 {
 		// 00***
 		// 0*****
 		// *******
+		// 0만 보면 2번과 같다.
+		// (1) 0을 for때리고, *을 for때리는 방법.
+		// 
+		/*	
+		 *  (2) 일반적으로 줄을 i로 열을 j로 2번과 같이 푼다.
+		 * 	i가 0일때 j는 0123
+		 *  i가 1일때 j는 01234
+		 *  i가 2일때 j는 012345
+		 *  i가 3일때 j는 0123456
+		 *  
+		 *  int i=0; i<4
+		 *  	int j=0; j<=3+i(끝점을 보고 수식 만들기)
+		 *  012
+		 *  01
+		 *  0 을 경계로 0찍기 *찍기로 나뉨
+		 *  --> if문으로 조건걸어서 바꾸기
+		 *  
+		 *  for(int i=0; i<4; i++) {
+		 *  	for(int j=0; j<4+i; j++) {
+		 *  		if(j>=4-i-1) {
+		 *  			system.out.print("*");
+		 *  		}else {
+	 	 *  			system.out.print("0");
+	 	 *  		}
+	 	 *  	}
+ 		 *  }
+		 *	  		
+		 */
+		
+		
 		System.out.println("-----3번 문제-----");		
 		for(int l=1; l<5; l++) {			
 			for(int i=3; i-(l-1)>0; i--) {
@@ -163,6 +209,36 @@ public class test0819 {
 		
 		// 9.
 		// 가장 긴 터널의 알파벳 이름과 숫자를 찾으세요 <이중For사용>
+		/* String ttt ="aabbbcccaaaaddbbbaaaaa";
+		 * 
+		 * (1) a중에 가장 긴 a?
+		 * i는 ttt문자열의 index로
+		 * j는 a를 만나면 파고들어서 그 안의 for문(★★★중요 패턴★★★)
+		 * 
+		 * int maxCnt=0;
+		 * int cnt=0;
+		 * for(int i=0; i<a.length(); i++) {
+		 * 		char temp = a.charAt(i);
+		 * 		cnt=0;	// 항상 cnt는 0부터 시작하도록 초기화
+		 * 		if(temp=='a') {
+		 * 			for(int j=i; j<a.length; j++) {
+		 * 				if(a.charAt(j)!='a'){
+		 * 					break;
+		 *				}else {
+		 *					cnt++;
+		 *				} 					
+		 * 
+		 * 			}	// i값 위치를 시작으로 연속된 a의 길이 구함
+		 * 		if(maxCnt<cnt) {
+		 * 			maxCnt=cnt;
+		 * 		}
+		 * 		}	
+		 * 		i=i+cnt-1;	// ★★★ 내가 생각했을 때 문제점 해결하는 표현
+		 * 					// 카운팅 했는데 다음 i값에서 또 세는 것을 방지하기 위해 함 ★★★
+		 * 					// 방금의 i값에서 카운팅 한 만큼 i 값을 늘리면 중복 되는 것을 방지
+		 * 					// 다만, 반복문이 다시 시작되며 증감식(i++)이 적용되므로 -1을 함
+		 * }
+		 */
 		System.out.println("-----9번 문제-----");
 		String ttt ="aabbbcccaaaaddbbbaaaaaE";
 		int sumAl = 0;
