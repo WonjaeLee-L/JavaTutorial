@@ -395,22 +395,52 @@ public class test0819 {
 		
 		// 12.
 		// 11번에서 for문 두 개만 사용하기
-		// 000*
-		// 00***
-		// 0*****
-		// *******
-		// 0*****
-		// 00***
-		// 000*
-		System.out.println("-----12번 문제-----");
+		// 000*   0.3
+		// 00***	1,4
+		// 0*****	2,5
+		// *******	3,6
+		// 0*****	4,5(7)
+		// 00***	5,4(8)
+		// 000*		6,3(9)
+		System.out.println("-----12번 문제(11번 포문 갯수 제한)-----");
 		for(int i=0; i<7; i++) {
-			int k=4+i;
-			if(i<3) {
 				for(int j=0; j<4+i; j++) {
-					
+					if(i<=3) {
+						if(j>=4-i-1) {
+							System.out.print("*");
+						}else {
+							System.out.print("0");
+						}
+					}					
+					if(i==4) {
+						if(j>=i-3 && j<=5) {
+							System.out.print("*");
+						}else if(j<i-3) {
+							System.out.print("0");
+						}else {
+							System.out.print("");
+						}	
+					}
+					if(i==5) {
+						if(j>=i-3 && j<=4) {
+							System.out.print("*");
+						}else if(j<i-3) {
+							System.out.print("0");
+						}else {
+							System.out.print("");
+						}	
+					}
+					if(i==6) {
+						if(j>=i-3 && j<=3) {
+							System.out.print("*");
+						}else if(j<i-3) {
+							System.out.print("0");
+						}else {
+							System.out.print("");
+						}	
+					}
 				}
-			}
-			
+				System.out.println();	
 		}
 		
 	}
