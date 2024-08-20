@@ -239,7 +239,8 @@ public class test0819 {
 		
 		
 		// 12.
+		// 11번에서 for문 두 개 사용하기
 		System.out.println("-----12번 문제-----");
-		System.out.println("9번에서 for문 두 개 사용함");
+		
 	}
 }

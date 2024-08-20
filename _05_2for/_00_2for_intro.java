@@ -8,6 +8,14 @@ public class _00_2for_intro {
 		
 		// int[] a = new int[5];
 		// 이중 for: for문 안의 for문
+		// for(int i~) {
+		//    for(int j~) {
+		// 	  }
+		// }
+		// 1. i의 변화와 j의 변화를 같이 생각
+		// 2. i는 무엇으로 볼것인가? j는 무엇으로 볼것인가?
+		
+		
 		
 		// for문의 패턴이 연관성이 있는지 보기
 
