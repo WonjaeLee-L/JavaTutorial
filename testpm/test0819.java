@@ -3,6 +3,10 @@ package testpm;
 public class test0819 {
 
 	public static void main(String[] args) {
+		// ★★★★★★1, 3, 9의 패턴은 완벽 숙지★★★★★★
+		
+		
+		
 		// 1.
 		// 1*1=1  1*2=2   1*3=3
 		// 2*1=2  2*2=4   2*3=6
@@ -205,9 +209,39 @@ public class test0819 {
 				}
 			}			
 		}
+		System.out.println("-----8번 문제(다른 방법)-----");
+		int cntPang=0;
+		int maxPang=0;
+		int indexPang=0;
+		int numberPang=0;
+		// int[] pang={1,0,0,0,2,3,4,4,6,2,2,2,2,1,0};
+		for(int i=0; i<pang.length; i++) {
+			cntPang=0;
+			maxPang=0;
+			indexPang=0;
+			numberPang=0;
+			// j를 i+1이 아닌 i부터 시작하여 cnt 했기 때문에, 나중에 cnt+1 하지 않아도 되게 함
+			for(int j=i; j<pang.length; j++) {
+				if(pang[i]!=pang[j]) {
+					break;
+				}else {
+					cntPang++;					
+				}
+				if(cntPang>=3) {
+					maxPang=cntPang;
+					indexPang=i;
+					numberPang=pang[i];
+				}
+			}
+			if(cntPang>=3) {
+				System.out.println(maxPang+"갯수, "+indexPang+"인덱스, "+numberPang+"숫자");	
+			}			
+			i=i+cntPang-1;			
+		}
 		
 		
-		// 9.
+		
+		// 9. (8, 10)도 이 패턴으로 풀어보기 ★★★
 		// 가장 긴 터널의 알파벳 이름과 숫자를 찾으세요 <이중For사용>
 		/* String ttt ="aabbbcccaaaaddbbbaaaaa";
 		 * 
@@ -233,11 +267,35 @@ public class test0819 {
 		 * 			maxCnt=cnt;
 		 * 		}
 		 * 		}	
-		 * 		i=i+cnt-1;	// ★★★ 내가 생각했을 때 문제점 해결하는 표현
-		 * 					// 카운팅 했는데 다음 i값에서 또 세는 것을 방지하기 위해 함 ★★★
+		 * 		i=i+cnt-1;	// ★★★ 내가 어려웠던 문제를 해결하는 표현
+		 * 					// 카운팅 했는데 다음 i값에서 또 세는 것을 방지하기 위한 수식
 		 * 					// 방금의 i값에서 카운팅 한 만큼 i 값을 늘리면 중복 되는 것을 방지
-		 * 					// 다만, 반복문이 다시 시작되며 증감식(i++)이 적용되므로 -1을 함
-		 * }
+		 * 					// 다만, 반복문이 다시 시작되며 증감식(i++)이 적용되므로 -1 추가 ★★★
+		 * } sysout(maxCnt)
+		 * 
+		 * 
+		 * (2) 가장 긴 것?
+		 * String ttt ="aabbbcccaaaaddbbbaaaaa";
+		 * int maxCnt=0;
+		 * int cnt=0;
+		 * char maxChar;
+		 * char nowChar;
+		 * for(int i=0; i<a.length()-1; i++) {
+		 * 		nowChar = a.charAt(i);
+		 * 		cnt=0;
+		 * 			for(int j=i; j<a.length; j++) {
+		 * 				if(a.charAt(j)!=nowChar){
+		 * 					break;
+		 *				}else {
+		 *					cnt++;
+		 *				}
+		 * 			}
+		 * 		if(maxCnt<cnt) {
+		 * 			maxCnt=cnt;
+		 * 			maxChar=nowChar;
+		 * 		}
+		 * 		i=i+cnt-1;
+		 * } sysout(maxChar+", "+maxCnt);
 		 */
 		System.out.println("-----9번 문제-----");
 		String ttt ="aabbbcccaaaaddbbbaaaaaE";
@@ -283,6 +341,27 @@ public class test0819 {
 			}
 		}System.out.println(cntAA+"개");
 		
+		System.out.println("-----10번 문제(다른 방법)-----");
+		int cntArr=0;
+		int size=2;
+		int sumArr=0;
+		
+		for(int i=0; i<arr.length; i++) {
+			
+			if(arr[i]==0) {
+				for(int j=i; j<arr.length; j++) {
+					if(arr[i]!=arr[j]) {
+						break;
+					}else {
+						cntArr++;
+					}
+				}
+				i=i+cntArr-1;
+				cntArr--;
+			}
+		} 
+		System.out.println(cntArr);
+		
 		
 		// 11.
 		// 000*
@@ -315,7 +394,7 @@ public class test0819 {
 		
 		
 		// 12.
-		// 11번에서 for문 두 개 사용하기
+		// 11번에서 for문 두 개만 사용하기
 		System.out.println("-----12번 문제-----");
 		
 	}
