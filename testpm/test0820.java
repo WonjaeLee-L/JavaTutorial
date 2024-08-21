@@ -102,7 +102,7 @@ public class test0820 {
 		 * 자동차 번호의 마지막 번호는 해당 차량이 주차할 주차번호이다.
 		 * 만약 주차번호에 다른 차량이 주차되어 있으면 다음 주차번호에 주차를 한다.
 		 * (이때, 다음 주차번호에도 차량이 있으면 주차불가이다.)
-		 *  주차가 끝난 후 주차번호와 주차항 차량 번호를 출력하시오.
+		 *  주차가 끝난 후 주차번호와 주차한 차량 번호를 출력하시오.
 		 */
 		
 		
@@ -162,7 +162,6 @@ public class test0820 {
 			}
 		}
 		System.out.println(id +"문자열에는 @가 "+cnt+"개 있습니다.");
-
 		
 		
 		
@@ -174,18 +173,15 @@ public class test0820 {
 		System.out.println("아이디를 입력하세요");
 //		String id = in.nextLine();
 		
-//		int cnt=0;
+		int cnt1=0;
 		for(int i=0; i < sign.length(); i++) {
 			for(int j=0; j < id.length(); j++) {
 				if(sign.charAt(i)==id.charAt(j)) {
-					cnt++;
+					cnt1++;
 				}
 			}
 		}
-		System.out.println(id +"문자열에는 특수문자가 "+cnt+"개 있습니다.");
-		
-		
-		
+		System.out.println(id +"문자열에는 특수문자가 "+cnt1+"개 있습니다.");
 	}
 
 }
