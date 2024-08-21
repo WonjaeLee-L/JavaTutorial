@@ -12,6 +12,8 @@ public class _02_scanner {
 				// nextInt();   숫자만 가져온다. 그래서 엔터키가 남는다. 엔터키를 삭제해서 버터를 비운다. 엔터키까지 가져오는 
 				                     // 메서드인  nextLine()을 다시 한 번 사용한다.  이것을 버터 지우기 라고 한다.
 				// next();  공백까지만 가져온다. 엔터는 남는다.               버퍼 지우기 필요있음
+				//				중간에 스페이스 있으면 거기까지 가져옴 그 뒤에 문자 안가져옴
+				//				aaa bbb입력시 aaa출력, 버퍼는 bbb남아있음
 				// nextLine();  엔터까지 가져온다. 즉 공백도 한꺼번에 가져온다. 엔터까지 가져오므로 버퍼 지우기 필요 없음
 				Scanner in = new Scanner(System.in);
 				
@@ -52,7 +54,8 @@ public class _02_scanner {
 				String a8 = in.next();
 				System.out.println(a8);
 				
-				in.close();   // in으로 가져온 객체(자원)을 반납한다.. 
+				in.close();   // ★★★★★★ in으로 가져온 객체(자원)을 반납한다..
+							  // 키보드 입력 되도록 설정한거 해제하는 기능 ★★★★★★
 
 	}
 
