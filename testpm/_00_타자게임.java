@@ -14,8 +14,9 @@ public class _00_타자게임 {
 		String[] arrLevel5 = {"astonish","lift","punish","angle","dress","fire","fowl","volleyball","shrill","squealing","frighten","wnader","learning","squirrel","gainful","crack","reflective","stream","rotten","icicle","bring","imperfect","cower"};
 		String[] arrLevel6 = {"When you have faults, do not fear to abandon them","ge is no guarantee of maturity","Youth isn’t always all it’s touted to be","Life is either a daring adventure or nothing at all","This too shall pass","The die is cast","When in doubt, choose change","Life is unfair, get used to it.","Being happy never goes out of style","Despite the forecast, live like it’s spring","Turn your wounds into wisdom","Change the world by being yourself","Great minds have purposes, others have wishes","Be gentle first with yourself","All we have is now","Believe in yourself"};
 		String[][] level = {arrLevel1, arrLevel2, arrLevel3, arrLevel4, arrLevel5, arrLevel6};
-		/* 이차배열
-		 * level[i][arrLevel] 
+		/* 
+		 * 이차배열 활용하여 단순화하는 방법 ★★★
+		 * level[i][arrLevel1[r.nextInt(arrLevel1.length)]] 
 		 * 
 		 */
 		
@@ -88,7 +89,7 @@ public class _00_타자게임 {
 						break;
 					}else if(score<100 && cnt>=10) {
 						System.out.println("실력이 부족합니다. 이 게임을 다시 시작합니다.");
-						i = 0;
+						i = -1;
 						score = 0;
 						avg = 0;
 						cnt = 0;
