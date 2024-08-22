@@ -67,7 +67,8 @@ public class _00_타자게임 {
 				System.out.println("게임을 시작합니다.");
 			} else if (word.equals("시작")) {
 				System.out.println("게임을 시작합니다.");
-				System.out.println("단계를 입력하세요▶(1~6)숫자 입력◀");
+				System.out.println("레벨을 선택하세요");
+				System.out.println("▶(1~6)숫자 입력◀");
 				int inputLevel = in.nextInt();
 				in.nextLine();
 				if (inputLevel == 1) {
