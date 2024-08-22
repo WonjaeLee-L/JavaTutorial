@@ -1,9 +1,9 @@
-package testpm;
+package project;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class _00_타자게임 {
+public class _00_typing_game_20240821 {
 // 2024/08/21
 
 	public static void main(String[] args) {
