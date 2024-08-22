@@ -39,9 +39,6 @@ public class _00_타자게임 {
 		double avg = 0;
 		int cnt = 0;
 
-		// 레벨 이동을 위한 변수. 초기 게임 레벨은 1 이므로 초기값은 1로 설정
-		int location = 1;
-
 		int w1 = 0;
 		int w2 = 0;
 		int w3 = 0;
@@ -55,6 +52,8 @@ public class _00_타자게임 {
 		String t5 = "";
 		String t6 = "";
 
+		// 레벨 이동을 위한 변수.
+		int location = 0;
 		// 숙련자일 경우 최고 난이도 이동을 위한 변수
 		int beforeScore = 0;
 
@@ -62,130 +61,163 @@ public class _00_타자게임 {
 			System.out.println("★타자 게임★");
 			System.out.println("시작하시겠습니까?(시작/종료)");
 			String word = in.nextLine();
-
-			if (word.equals("시작")) {
+			// 게임 초기에만 단계 입력하게하고, 그 이후에는 다음 단계로만 넘어가도록 진행
+			// 초기 location은 0, 마지막 난이도 클리어 후 location을 0으로 선언
+			if (word.equals("시작") && (location != 0)) {
 				System.out.println("게임을 시작합니다.");
+			} else if (word.equals("시작")) {
+				System.out.println("게임을 시작합니다.");
+				System.out.println("단계를 입력하세요[(1~6)숫자 입력]");
+				int inputLevel = in.nextInt();
+				in.nextLine();
+				if (inputLevel == 1) {
+					location = 1;
+				} else if (inputLevel == 2) {
+					location = 2;
+				} else if (inputLevel == 3) {
+					location = 3;
+				} else if (inputLevel == 4) {
+					location = 4;
+				} else if (inputLevel == 5) {
+					location = 5;
+				} else if (inputLevel == 6) {
+					location = 6;
+				} else {
+					System.out.println("잘못된 입력입니다. 다시 입력하세요!");
+					continue;
+				}
+			} else if (word.equals("종료")) {
+				System.out.println("게임을 종료합니다.");
+				break;
+			} else {
+				System.out.println("잘못된 입력입니다. 다시 입력하세요!");
+				continue;
+			}
 
-				for (int i = 0; i < 16; i++) {
-					// location을 이용하여 게임 level 이동
-					if (location == 1) {
-						int level1Word = r.nextInt(arrLevel1.length);
-						System.out.println(level[0][level1Word]);
-						String level1Typing = in.nextLine();
-						w1 = level1Word;
-						t1 = level1Typing;
-					} else if (location == 2) {
-						int level2Word = r.nextInt(arrLevel2.length);
-						System.out.println(level[1][level2Word]);
-						String level2Typing = in.nextLine();
-						w2 = level2Word;
-						t2 = level2Typing;
-					} else if (location == 3) {
-						int level3Word = r.nextInt(arrLevel3.length);
-						System.out.println(level[2][level3Word]);
-						String level3Typing = in.nextLine();
-						w3 = level3Word;
-						t3 = level3Typing;
-					} else if (location == 4) {
-						int level4Word = r.nextInt(arrLevel4.length);
-						System.out.println(level[3][level4Word]);
-						String level4Typing = in.nextLine();
-						w4 = level4Word;
-						t4 = level4Typing;
-					} else if (location == 5) {
-						int level5Word = r.nextInt(arrLevel5.length);
-						System.out.println(level[4][level5Word]);
-						String level5Typing = in.nextLine();
-						w5 = level5Word;
-						t5 = level5Typing;
-					} else if (location == 6) {
-						int level6Word = r.nextInt(arrLevel6.length);
-						System.out.println(level[5][level6Word]);
-						String level6Typing = in.nextLine();
-						w6 = level6Word;
-						t6 = level6Typing;
-					}
-					// 오류 발생 확인
-					System.out.println("level[0][w1]: " + level[0][w1] + ", t1: " + t1);
-					System.out.println("level[1][w2]: " + level[1][w2] + ", t2: " + t2);
-					System.out.println("level[2][w3]: " + level[2][w3] + ", t3: " + t3);
-					System.out.println("level[3][w4]: " + level[3][w4] + ", t4: " + t4);
-					System.out.println("level[4][w5]: " + level[4][w5] + ", t5: " + t5);
-					System.out.println("level[5][w6]: " + level[5][w6] + ", t6: " + t6);
-					if ((level[0][w1].equals(t1)) || (level[1][w2].equals(t2)) || (level[2][w3].equals(t3))
-							|| (level[3][w4].equals(t4)) || (level[4][w5].equals(t5)) || (level[5][w6].equals(t6))) {
-						score += 20;
-						cnt++;
-						avg += 100;
-						System.out.println("정답입니다. +20점!" + "점수는 " + score + "입니다.");
-						// 이전 레벨에서 저장된 정답을 모두 초기화하여 실패시 정답처리 오류 수정
-						t1 = "";
-						t2 = "";
-						t3 = "";
-						t4 = "";
-						t5 = "";
-						t6 = "";
-					} else {
-						score -= 10;
-						cnt++;
-						avg -= 100;
-						System.out.println("오답입니다.. -10점" + "점수는 " + score + "입니다.");
-
-					}
-
-					if (score <= 30 && cnt >= 10) {
-						System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
-						System.out.println("실력이 부족합니다. 1단계로 돌아갑니다.");
-						beforeScore = 0;
-						score = 0;
-						avg = 0;
-						cnt = 0;
-						beforeScore = 0;
-						location = 1;
-						break;
-					} else if (score < 100 && cnt >= 10) {
-						System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
-						System.out.println("실력이 부족합니다. 현재 난이도를 다시 시작합니다.");
-						i = -1;
-						score = 0;
-						avg = 0;
-						cnt = 0;
-						beforeScore = 0;
-
-					} else if (location == 6 && score == 100 && (avg / cnt) == 100) {
-						System.out.println("최고 레벨을 클리어 하였습니다. 게임을 종료합니다.");
-						word.equals("종료");
-					} else if (beforeScore == 100 && score == 100 && (avg / cnt) == 100) {
-						// 이전 점수 100점 달성, 이번 정확도 100%면 최고 난이도로 이동하는 이벤트
-
-						System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
-						System.out.println("이전 레벨 100점, 현재 레벨 정확도 100%를 달성하여 최고 난이도로 이동합니다.");
-						score = 0;
-						avg = 0;
-						cnt = 0;
-						beforeScore = 0;
-						location = 6;
-						break;
-					} else if (score == 100) {
-						System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
-						System.out.println("점수가 100점 입니다. 다음 게임으로 넘어갑니다.");
-						System.out.println("정확도 100%를 노려보세요!");
-						score = 0;
-						avg = 0;
-						cnt = 0;
-						beforeScore = 100;
-						location++;
-						break;
-					}
+			for (int i = 0; i < 16; i++) {
+				// location을 이용하여 게임 level 이동
+				if (location == 1) {
+					int level1Word = r.nextInt(arrLevel1.length);
+					System.out.println(level[0][level1Word]);
+					String level1Typing = in.nextLine();
+					w1 = level1Word;
+					t1 = level1Typing;
+				} else if (location == 2) {
+					int level2Word = r.nextInt(arrLevel2.length);
+					System.out.println(level[1][level2Word]);
+					String level2Typing = in.nextLine();
+					w2 = level2Word;
+					t2 = level2Typing;
+				} else if (location == 3) {
+					int level3Word = r.nextInt(arrLevel3.length);
+					System.out.println(level[2][level3Word]);
+					String level3Typing = in.nextLine();
+					w3 = level3Word;
+					t3 = level3Typing;
+				} else if (location == 4) {
+					int level4Word = r.nextInt(arrLevel4.length);
+					System.out.println(level[3][level4Word]);
+					String level4Typing = in.nextLine();
+					w4 = level4Word;
+					t4 = level4Typing;
+				} else if (location == 5) {
+					int level5Word = r.nextInt(arrLevel5.length);
+					System.out.println(level[4][level5Word]);
+					String level5Typing = in.nextLine();
+					w5 = level5Word;
+					t5 = level5Typing;
+				} else if (location == 6) {
+					int level6Word = r.nextInt(arrLevel6.length);
+					System.out.println(level[5][level6Word]);
+					String level6Typing = in.nextLine();
+					w6 = level6Word;
+					t6 = level6Typing;
+				}
+				// 오류 발생 확인
+//					System.out.println("level[0][w1]: " + level[0][w1] + ", t1: " + t1);
+//					System.out.println("level[1][w2]: " + level[1][w2] + ", t2: " + t2);
+//					System.out.println("level[2][w3]: " + level[2][w3] + ", t3: " + t3);
+//					System.out.println("level[3][w4]: " + level[3][w4] + ", t4: " + t4);
+//					System.out.println("level[4][w5]: " + level[4][w5] + ", t5: " + t5);
+//					System.out.println("level[5][w6]: " + level[5][w6] + ", t6: " + t6);
+				if ((level[0][w1].equals(t1)) || (level[1][w2].equals(t2)) || (level[2][w3].equals(t3))
+						|| (level[3][w4].equals(t4)) || (level[4][w5].equals(t5)) || (level[5][w6].equals(t6))) {
+					score += 20;
+					cnt++;
+					avg += 100;
+					System.out.println("정답입니다. +20점!" + "점수는 " + score + "입니다.");
+					// 이전 레벨에서 저장된 정답을 모두 초기화
+					t1 = "";
+					t2 = "";
+					t3 = "";
+					t4 = "";
+					t5 = "";
+					t6 = "";
+				} else {
+					score -= 10;
+					cnt++;
+					avg -= 100;
+					System.out.println("오답입니다.. -10점" + "점수는 " + score + "입니다.");
 
 				}
 
-			} else if (word.equals("종료")) {
-				System.out.println("종료");
-				break;
+				if (score < 0 && cnt >= 10) {
+					System.out.println("실력이 처참합니다. 게임을 종료합니다.");
+					location = 0;
+					break;
+				}
+
+				if (score <= 30 && cnt >= 10) {
+					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
+					System.out.println("실력이 부족합니다. 1단계로 돌아갑니다.");
+					beforeScore = 0;
+					score = 0;
+					avg = 0;
+					cnt = 0;
+					beforeScore = 0;
+					location = 1;
+					break;
+				} else if (score < 100 && cnt >= 10) {
+					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
+					System.out.println("100점을 달성하지 못하여 현재 난이도를 다시 시작합니다.");
+					i = -1;
+					score = 0;
+					avg = 0;
+					cnt = 0;
+					beforeScore = 0;
+
+				} else if (location == 6 && score >= 100 && (avg / cnt) == 100) {
+					System.out.println("최고 레벨을 클리어 하였습니다. 게임을 종료합니다.");
+					// 최고 난이도 클리어시 처음으로 돌아가서 난이도 선택 가능
+					location = 0;
+					break;
+				} else if (beforeScore == 100 && score >= 100 && (avg / cnt) == 100) {
+					// 이전 점수 100점 달성, 이번 정확도 100%면 최고 난이도로 이동하는 이벤트
+
+					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
+					System.out.println("이전 레벨 100점, 현재 레벨 정확도 100%를 달성하여 최고 난이도로 이동합니다.");
+					score = 0;
+					avg = 0;
+					cnt = 0;
+					beforeScore = 0;
+					location = 6;
+					break;
+				} else if (score >= 100) {
+					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
+					System.out.println("점수가 100점 입니다. 다음 게임으로 넘어갑니다.");
+					System.out.println("정확도 100%를 노려보세요!");
+					score = 0;
+					avg = 0;
+					cnt = 0;
+					beforeScore = 100;
+					location++;
+					break;
+				}
+
 			}
 
 		}
+
 		// 입력 설정 해제
 		in.close();
 	}
