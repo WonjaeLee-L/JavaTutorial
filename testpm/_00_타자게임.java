@@ -67,7 +67,7 @@ public class _00_타자게임 {
 				System.out.println("게임을 시작합니다.");
 			} else if (word.equals("시작")) {
 				System.out.println("게임을 시작합니다.");
-				System.out.println("단계를 입력하세요[(1~6)숫자 입력]");
+				System.out.println("단계를 입력하세요▶(1~6)숫자 입력◀");
 				int inputLevel = in.nextInt();
 				in.nextLine();
 				if (inputLevel == 1) {
@@ -133,13 +133,6 @@ public class _00_타자게임 {
 					w6 = level6Word;
 					t6 = level6Typing;
 				}
-				// 오류 발생 확인
-//					System.out.println("level[0][w1]: " + level[0][w1] + ", t1: " + t1);
-//					System.out.println("level[1][w2]: " + level[1][w2] + ", t2: " + t2);
-//					System.out.println("level[2][w3]: " + level[2][w3] + ", t3: " + t3);
-//					System.out.println("level[3][w4]: " + level[3][w4] + ", t4: " + t4);
-//					System.out.println("level[4][w5]: " + level[4][w5] + ", t5: " + t5);
-//					System.out.println("level[5][w6]: " + level[5][w6] + ", t6: " + t6);
 				if ((level[0][w1].equals(t1)) || (level[1][w2].equals(t2)) || (level[2][w3].equals(t3))
 						|| (level[3][w4].equals(t4)) || (level[4][w5].equals(t5)) || (level[5][w6].equals(t6))) {
 					score += 20;
@@ -158,15 +151,12 @@ public class _00_타자게임 {
 					cnt++;
 					avg -= 100;
 					System.out.println("오답입니다.. -10점" + "점수는 " + score + "입니다.");
-
 				}
-
 				if (score < 0 && cnt >= 10) {
 					System.out.println("실력이 처참합니다. 게임을 종료합니다.");
 					location = 0;
 					break;
 				}
-
 				if (score <= 30 && cnt >= 10) {
 					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
 					System.out.println("실력이 부족합니다. 1단계로 돌아갑니다.");
@@ -185,15 +175,13 @@ public class _00_타자게임 {
 					avg = 0;
 					cnt = 0;
 					beforeScore = 0;
-
 				} else if (location == 6 && score >= 100 && (avg / cnt) == 100) {
 					System.out.println("최고 레벨을 클리어 하였습니다. 게임을 종료합니다.");
 					// 최고 난이도 클리어시 처음으로 돌아가서 난이도 선택 가능
 					location = 0;
 					break;
 				} else if (beforeScore == 100 && score >= 100 && (avg / cnt) == 100) {
-					// 이전 점수 100점 달성, 이번 정확도 100%면 최고 난이도로 이동하는 이벤트
-
+					// 이전 점수 100점 달성, 이번 정확도 100%면 최고 난이도로 이동
 					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
 					System.out.println("이전 레벨 100점, 현재 레벨 정확도 100%를 달성하여 최고 난이도로 이동합니다.");
 					score = 0;
