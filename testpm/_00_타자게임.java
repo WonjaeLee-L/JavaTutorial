@@ -4,11 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class _00_타자게임 {
+// 2024/08/21
 
 	public static void main(String[] args) {
+		// 배열에 저장된 문자를 랜덤으로 가져오기 위해 사용
 		Random r = new Random();
+		// 키보드 입력을 위해 사용
 		Scanner in = new Scanner(System.in);
 
+		// Level별 단어를 array에 저장
 		String[] arrLevel1 = { "ㅂ", "ㅈ", "ㄷ", "ㄱ", "ㅅ", "ㅁ", "ㄴ", "ㅇ", "ㄹ", "ㅎ", "ㅋ", "ㅌ", "ㅊ", "ㅍ", "ㅛ", "ㅕ", "ㅑ", "ㅐ",
 				"ㅔ", "ㅗ", "ㅓ", "ㅏ", "ㅣ", "ㅠ", "ㅜ", "ㅡ" };
 		String[] arrLevel2 = { "가", "분", "미", "돌", "차", "랑", "빈", "날", "풀", "비", "자", "은", "응", "네", "실", "궁", "짐", "달",
@@ -61,10 +65,13 @@ public class _00_타자게임 {
 			System.out.println("★타자 게임★");
 			System.out.println("시작하시겠습니까?(시작/종료)");
 			String word = in.nextLine();
-			// 게임 초기에만 단계 입력하게하고, 그 이후에는 다음 단계로만 넘어가도록 진행
+			
 			// 초기 location은 0, 마지막 난이도 클리어 후 location을 0으로 선언
+			// 게임 중 돌아올 경우 난이도 선택 없이 진행(점수 조건에 따라 자동으로 레벨 변경)
 			if (word.equals("시작") && (location != 0)) {
 				System.out.println("게임을 시작합니다.");
+				
+				// 처음 시작하는 게임은 난이도 선택 가능
 			} else if (word.equals("시작")) {
 				System.out.println("게임을 시작합니다.");
 				System.out.println("레벨을 선택하세요");
@@ -95,7 +102,7 @@ public class _00_타자게임 {
 				continue;
 			}
 
-			for (int i = 0; i < 16; i++) {
+			for (int i = 0; i < 15; i++) {
 				// location을 이용하여 게임 level 이동
 				if (location == 1) {
 					int level1Word = r.nextInt(arrLevel1.length);
@@ -184,7 +191,7 @@ public class _00_타자게임 {
 				} else if (beforeScore == 100 && score >= 100 && (avg / cnt) == 100) {
 					// 이전 점수 100점 달성, 이번 정확도 100%면 최고 난이도로 이동
 					System.out.println("정확도는 " + (avg / cnt) + "% 입니다.");
-					System.out.println("이전 레벨 100점, 현재 레벨 정확도 100%를 달성하여 최고 난이도로 이동합니다.");
+					System.out.println("숙련자로 판단됩니다. 최고 난이도로 이동합니다.");
 					score = 0;
 					avg = 0;
 					cnt = 0;
