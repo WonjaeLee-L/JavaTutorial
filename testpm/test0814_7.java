@@ -26,9 +26,9 @@ public class test0814_7 {
 			jobTime[i] = jobTime[i]-4;
 			
 			if(jobTime[i]>=0) {
-				System.out.println(i + "번 사람, 남은 시간: " + (jobTime[i]));
+				System.out.println(i + "번 사람이 사용, 남은 시간: " + (jobTime[i]));
 			}else if(jobTime[i]>=-3) {
-				System.out.println(i + "번 사람, 남은 시간: " + 0);
+				System.out.println(i + "번 사람이 사용, 남은 시간: " + 0);
 			}
 			
 		}
