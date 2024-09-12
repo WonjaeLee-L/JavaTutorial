@@ -14,32 +14,6 @@ public class test0911_5 {
 
 		
 		
-		for(int i=0; i<row; i++) {		
-			
-			for(int j=0; j<col; j++) {
-				
-				
-				if(a[i][j]==0) {
-					
-					if(i==0) {
-						a[i][j]=num;
-						num++;
-					}
-					
-					if(j==4 && i>=1) {
-						
-						a[i][4]=num;
-						num++;
-					}
-//					
-//					if(j==4 && i==3) {
-//						
-//						a[3][j-1]=num;
-//						num++;
-//					}
-				}
-			}
-		}
 		
 		
 		
