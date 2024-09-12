@@ -71,20 +71,6 @@ public class test0911_6 {
 		
 		
 		
-//		 코드 1. + 코드 2.
-//		 0 행과 1행 오른쪽으로 이동 후, 마지막 숫자 한 행 아래로 가는 것 합침
-		for(int k=0; k<2; k++) {
-			
-			for(int i=k; i<1+k; i++) {
-				for(int j=col-1-k; j>=1+k; j--) {
-					if(j>=col-1-k) {
-						a[i+1][j]=a[i][j];
-					}
-					a[i][j]=a[i][j-1];
-				}
-			}
-			
-		}
 		
 		
 //		 코드 3. + 코드 4.
@@ -97,6 +83,20 @@ public class test0911_6 {
 			}
 		}
 		
+//		 코드 1. + 코드 2.
+//		 0 행과 1행 오른쪽으로 이동 후, 마지막 숫자 한 행 아래로 가는 것 합침
+		for(int k=0; k<2; k++) {
+			
+			for(int i=k; i<1+k; i++) {
+				for(int j=col-1-k; j>=1+k; j--) {
+					if(j>=col-1-k) {	
+						a[i+1][j]=a[i][j];
+					}
+					a[i][j]=a[i][j-1];
+				}
+			}
+			
+		}
 	
 		
 		
