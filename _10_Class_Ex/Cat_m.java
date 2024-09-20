@@ -51,6 +51,7 @@ public class Cat_m {
 				break;
 			}
 		}
+		cat=null;	// 객체의 소멸까지 관여. 더이상 참조할 필요가 없으므로 제거
 	}
 
 	public void allList() { // 메서드 정의
