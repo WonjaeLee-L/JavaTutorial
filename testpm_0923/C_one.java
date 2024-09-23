@@ -24,5 +24,4 @@ public class C_one {
 	public void setCname(String b) {
 		cName = b;
 	}
-
 }

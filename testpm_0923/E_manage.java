@@ -11,7 +11,7 @@ public class E_manage {
 		while (true) {
 			System.out.println("6. 이벤트 등록");
 			System.out.println("7. 이벤트 전체 보기");
-			System.out.println("8. 종료");
+			System.out.println("8. 선택 페이지로 이동");
 
 			int selNum = in.nextInt();
 			in.nextLine();
@@ -21,6 +21,7 @@ public class E_manage {
 			} else if (selNum == 7) {
 				e_view();
 			} else if (selNum == 8) {
+//				C_E_select cESelect = new C_E_select();
 				break;
 			}
 

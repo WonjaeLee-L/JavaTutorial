@@ -12,7 +12,7 @@ public class C_manage {
 			System.out.println("2. 고객 정보 보기");
 			System.out.println("3. 고객 정보 수정");
 			System.out.println("4. 고객 정보 삭제");
-			System.out.println("5. 이벤트 페이지로 이동");
+			System.out.println("5. 선택 페이지로 이동");
 
 			int selNum = in.nextInt();
 			in.nextLine();
@@ -59,6 +59,18 @@ public class C_manage {
 		for (int i = 0; i < cList.length; i++) {
 			if (cList[i] != null) {
 				cList[i].prt();
+
+			}
+		}
+
+	}
+
+	private void c_view1() {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < cList.length; i++) {
+			if (cList[i] != null) {
+				cList[i].prt();
+
 			}
 		}
 
