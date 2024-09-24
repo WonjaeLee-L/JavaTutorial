@@ -122,4 +122,5 @@ Cat_Obj[] clist = new Cat_Obj[5];
   			a 라는 string에 매개변수 값이 있으면 true, 없으면 false
   	 		-> 문자열에 내가 찾고자하는 문자가 포함 되어 있는지 확인
   		
-  	
+  	원시타입은 상수를 매개변수값으로 준다.(call by value)
+  	참조타입이라면 주소를 매개변수값으로 준다.(call by reference) -> 주소를 주니까 같이 공유, 같이 사용 

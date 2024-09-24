@@ -5,7 +5,7 @@ public class Main1 {
 	public static void main(String[] args) {
 		TestMethod t = new TestMethod();
 		System.out.println(t.name);
-		t.setName("Lee");
+		t.setName("lee");
 		System.out.println(t.name);
 		System.out.println(t.getName());
 		String resultName = t.getName2("1122"); 
@@ -15,7 +15,7 @@ public class Main1 {
 			System.out.println("비번틀림");
 		}
 		
-		System.out.println(t.maskName("*"));
+		System.out.println(t.maskName(" wonjae"));
 
 	}
 
