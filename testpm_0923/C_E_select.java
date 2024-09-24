@@ -6,6 +6,8 @@ public class C_E_select {
 
 	public C_E_select() {
 		Scanner in = new Scanner(System.in);
+		C_manage cManage = new C_manage();
+		E_manage eManage = new E_manage();
 		while (true) {
 			System.out.println("관리할 내용을 선택하세요");
 			System.out.println("1. 고객");
@@ -15,11 +17,13 @@ public class C_E_select {
 			in.nextLine();
 			if (selNum == 1) {
 				System.out.println("고객 관리 페이지로 이동합니다");
-				C_manage cManage = new C_manage();
+//				C_manage cManage = new C_manage();
+				cManage.c_c();
 
 			} else if (selNum == 2) {
 				System.out.println("이벤트 관리 페이지로 이동합니다");
-				E_manage eManage = new E_manage();
+//				E_manage eManage = new E_manage();
+				eManage.e_e();
 
 			} else if (selNum == 3) {
 				break;

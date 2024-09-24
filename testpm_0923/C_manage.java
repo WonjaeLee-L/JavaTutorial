@@ -4,9 +4,13 @@ import java.util.Scanner;
 
 public class C_manage {
 	C_one[] cList = new C_one[10];
+	Scanner in = new Scanner(System.in);
 
 	public C_manage() {
-		Scanner in = new Scanner(System.in);
+
+	}
+
+	public void c_c() { // 고객 정보 남기기 위해 C_manage() 메서드를 비우고 메서드 새로 생성
 		while (true) {
 			System.out.println("1. 고객 가입");
 			System.out.println("2. 고객 정보 보기");
@@ -29,6 +33,7 @@ public class C_manage {
 			}
 
 		}
+
 	}
 
 	private void c_mod() {

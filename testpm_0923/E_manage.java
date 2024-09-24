@@ -5,9 +5,13 @@ import java.util.Scanner;
 public class E_manage {
 
 	E_one[] eList = new E_one[10];
+	Scanner in = new Scanner(System.in);
 
 	public E_manage() {
-		Scanner in = new Scanner(System.in);
+		
+	}
+
+	public void e_e() { // 이벤트 정보 남기기 위해 E_manage() 메서드를 비우고 메서드 새로 생성
 		while (true) {
 			System.out.println("6. 이벤트 등록");
 			System.out.println("7. 이벤트 전체 보기");
@@ -21,11 +25,11 @@ public class E_manage {
 			} else if (selNum == 7) {
 				e_view();
 			} else if (selNum == 8) {
-//				C_E_select cESelect = new C_E_select();
 				break;
 			}
 
 		}
+
 	}
 
 	private void e_view() {

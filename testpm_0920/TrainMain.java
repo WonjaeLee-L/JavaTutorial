@@ -1,4 +1,4 @@
-package testpn_0920;
+package testpm_0920;
 
 public class TrainMain {
 
