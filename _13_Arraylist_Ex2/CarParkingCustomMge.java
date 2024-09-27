@@ -1,15 +1,16 @@
 package _13_Arraylist_Ex2;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.Timer;
 
 public class CarParkingCustomMge {
 	Scanner in = new Scanner(System.in);
 	LocalDateTime now = LocalDateTime.now();
-	Calendar caltime = Calendar.getInstance();
-
 	
 	ArrayList<CarParkingOne> carList = new ArrayList<>();
 	ArrayList<CarParkingOne> outList = new ArrayList<>();
@@ -26,16 +27,17 @@ public class CarParkingCustomMge {
 			System.out.println("0. 고객메뉴 종료");	
 			System.out.print("  선택 >>");
 			
-			int num = in.nextInt();
-			in.nextLine();
-			if(num == 1) {
+			String num = in.nextLine();
+			if(num.equals("1")) {
 				addCar();
-			} else if(num == 2) {
+			} else if(num.equals("2")) {
 				serchCar();
-			} else if(num == 3) {
+			} else if(num.equals("3")) {
 				delCar();
-			} else if(num == 0) {
+			} else if(num.equals("0")) {
 				break;
+			} else {
+				System.out.println("선택 번호를 잘못 입력하셨습니다!");
 			}
 		}
 	}	// 고객 메뉴
@@ -44,7 +46,6 @@ public class CarParkingCustomMge {
 	public void addCar() {
 		System.out.println("<주차등록>");
 		String temp_carnum = null;
-		int temp_cartype = 0;
 		int caridx =-1;
 		CarParkingOne car = new CarParkingOne();
 		String temp_carintime = null;
@@ -60,33 +61,24 @@ public class CarParkingCustomMge {
 	
 			System.out.println();
 			System.out.print("차량 종류를 입력 하세요(1.대형/2.중형/3.소형) :");
-			temp_cartype = in.nextInt();
-			in.nextLine();
-			
-			if(temp_cartype == 1) {
+			String temp_cartype = in.nextLine();
+			if(temp_cartype.equals("1")) {
 				car.setCartype("대형");
 				car.setCarpay(10000);
-			} else if (temp_cartype == 2) {
+			} else if (temp_cartype.equals("2")) {
 				car.setCartype("중형");
 				car.setCarpay(5000);
-			} else if (temp_cartype == 3) {
+			} else if (temp_cartype.equals("3")) {
 				car.setCartype("소형");
 				car.setCarpay(1000);
 			}
 			
-	
-			// 입차시간 구하기
-			temp_carintime = "0"+now.getMinute(); 
-			temp_carintime = temp_carintime.substring(temp_carintime.length()-2, temp_carintime.length());
-			temp_carintime = now.getHour() +":"+temp_carintime;
-			temp_carintime = temp_carintime.substring(temp_carintime.length()-5, temp_carintime.length());
+			System.out.print("입차 시간을 입력하세요 :");
+			temp_carintime = in.nextLine();
 			car.setCarInTime(temp_carintime);
-	
 			
 			temp_carouttime = null;
 			car.setCarOutTime(temp_carouttime);	
-			
-			
 			
 			carList.add(car);
     	} else {
@@ -99,61 +91,32 @@ public class CarParkingCustomMge {
     	System.out.println("<출차삭제>");
     	String temp_carnum = null;
     	int caridx =-1;
-    	String temp_carouttime = "0";
-    	
     	
     	System.out.println("차량 번호를 입력하세요");
     	temp_carnum = in.nextLine();
 
     	// 주차된 차량번호를 조회하여 index 값을 리턴한다.
     	caridx = findCar(temp_carnum);
-    	if ( caridx != -1) {
+    	if (caridx != -1) {
     		CarParkingOne out = new CarParkingOne();
     		out.setCarnum(carList.get(caridx).carnum);
 			out.setCartype(carList.get(caridx).cartype);
-//			out.setCarpay(carList.get(caridx).carpay);
+			out.setCarpay(carList.get(caridx).carpay);
 			out.setCarInTime(carList.get(caridx).carintime);
-
-			// 출차시간 구하기
-			temp_carouttime = "0"+now.getMinute(); 
-			temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-2, temp_carouttime.length());
-			temp_carouttime = now.getHour() +":"+temp_carouttime;
-			temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-5, temp_carouttime.length());
-			carList.get(caridx).setCarOutTime(temp_carouttime);
+			// 출차시간 저장
+			carList.get(caridx).setCarOutTime(curTime());
 			
-					
 			out.setCarOutTime(carList.get(caridx).carouttime);
 			
-			
-			// 주차 시간에 따른 요금 추가
-			String[] outarray = temp_carouttime.split(":",2);
-			String out1 = outarray[0];
-			String out2 = outarray[1];
-			
-			int outtime1 = Integer.parseInt(out1);
-			int outtime2 = Integer.parseInt(out2);
-			
-			String[] inarray = carList.get(caridx).carintime.split(":",2);
-			String in1 = inarray[0];
-			String in2 = inarray[1];
-			
-			int intime1 = Integer.parseInt(in1);
-			int intime2 = Integer.parseInt(in2);
-			
-			int sumouttime = (outtime1*60)+outtime2;
-			int sumintime = (intime1*60)+intime2;
-			
-			int minustime = (sumouttime-sumintime)/10;
-			carList.get(caridx).carpay += minustime*500;
-			out.setCarpay(carList.get(caridx).carpay);
-			
-			
-			outList.add(out);
-			
-    		System.out.println(carList.get(caridx).getCarnum()+"의 챠량이 출차 되었습니다");
-    		carList.remove(caridx);
+			// 출차 추가요금 계산
+			int addPay = calPay(carList.get(caridx).carintime, carList.get(caridx).carouttime);
+			out.setCarpay(carList.get(caridx).carpay+addPay);
 
+			// 출차정보에 저장
+			outList.add(out);
+    		System.out.println(carList.get(caridx).getCarnum()+"의 챠량이 출차 되었습니다");
     		
+    		carList.remove(caridx);
     	} else {
     		System.out.println("출차 차량번호 번호가 없습니다!");
     	}
@@ -175,14 +138,51 @@ public class CarParkingCustomMge {
     public void serchCar() {
     	System.out.println("<차량조회>");
     	String temp_carnum = null;
+    	int caridx =-1;
     	
     	System.out.println("차량 번호를 입력하세요");
     	temp_carnum = in.nextLine();
-		for(int i=0; i<carList.size();i++) {
-			if(carList.get(i).carnum.equals(temp_carnum)) {
-				carList.get(i).prt();
-				break;
+    	
+    	// 주차된 차량번호를 조회하여 index 값을 리턴한다.
+    	caridx = findCar(temp_carnum);
+    	if (caridx != -1) {
+			for(int i=0; i<carList.size();i++) {
+				if(carList.get(i).carnum.equals(temp_carnum)) {
+					carList.get(i).prt();
+					int retpay = carList.get(i).carpay + calPay(carList.get(i).carintime, curTime());
+					System.out.println("계산할 주차요금 : "+retpay+"원 입니다.");
+					break;
+				}
 			}
-		}
+    	} else {
+    		System.out.println("조회 차량번호 번호가 없습니다!");
+    	}	
     } // 고객 조회
+    
+    public int calPay(String intTime, String ouTime) {
+    	int ret=0;
+//		String intTime = "01:00";
+//		String ouTime = "02:50";
+		LocalTime parkedAt = LocalTime.parse(intTime);
+		LocalTime exitAt = LocalTime.parse(ouTime);
+		int amount = (int)Duration.between(parkedAt, exitAt).toMinutes(); //Duration, LocalTime을 통해 문자열로 주어진 시간의 차(분)를 구함
+//		System.out.println(amount);
+		if (amount > 30) {
+			ret = (amount / 10) *500;
+		}
+		else {
+			ret = 0;
+		}
+		return ret;
+    }
+    
+    public String curTime() {
+    	String temp_carouttime = "0";
+		// 출차시간 구하기
+		temp_carouttime = "0"+now.getMinute(); 
+		temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-2, temp_carouttime.length());
+		temp_carouttime = now.getHour() +":"+temp_carouttime;
+		temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-5, temp_carouttime.length());
+		return temp_carouttime;
+    }
 }
