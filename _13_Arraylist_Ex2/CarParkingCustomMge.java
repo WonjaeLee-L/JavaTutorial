@@ -4,9 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.Timer;
 
 public class CarParkingCustomMge {
 	Scanner in = new Scanner(System.in);
@@ -25,7 +23,7 @@ public class CarParkingCustomMge {
 			System.out.println("2. 차량조회");
 			System.out.println("3. 차량출차");
 			System.out.println("0. 고객메뉴 종료");	
-			System.out.print("  선택 >>");
+			System.out.print("  선택 >> ");
 			
 			String num = in.nextLine();
 			if(num.equals("1")) {
@@ -51,7 +49,7 @@ public class CarParkingCustomMge {
 		String temp_carintime = null;
 		String temp_carouttime = null;
 		
-		System.out.print("차량 번호를 입력하세요 :");
+		System.out.print("차량 번호를 입력하세요 : ");
 		temp_carnum = in.nextLine();
 		
 		// 주차된 차량번호를 조회하여 index 값을 리턴한다.
@@ -73,7 +71,7 @@ public class CarParkingCustomMge {
 				car.setCarpay(1000);
 			}
 			
-			System.out.print("입차 시간을 입력하세요 :");
+			System.out.print("입차 시간을 입력하세요 : ");
 			temp_carintime = in.nextLine();
 			car.setCarInTime(temp_carintime);
 			
@@ -92,7 +90,7 @@ public class CarParkingCustomMge {
     	String temp_carnum = null;
     	int caridx =-1;
     	
-    	System.out.println("차량 번호를 입력하세요");
+    	System.out.print("차량 번호를 입력하세요 : ");
     	temp_carnum = in.nextLine();
 
     	// 주차된 차량번호를 조회하여 index 값을 리턴한다.
@@ -140,7 +138,7 @@ public class CarParkingCustomMge {
     	String temp_carnum = null;
     	int caridx =-1;
     	
-    	System.out.println("차량 번호를 입력하세요");
+    	System.out.print("차량 번호를 입력하세요 : ");
     	temp_carnum = in.nextLine();
     	
     	// 주차된 차량번호를 조회하여 index 값을 리턴한다.
@@ -150,7 +148,7 @@ public class CarParkingCustomMge {
 				if(carList.get(i).carnum.equals(temp_carnum)) {
 					carList.get(i).prt();
 					int retpay = carList.get(i).carpay + calPay(carList.get(i).carintime, curTime());
-					System.out.println("계산할 주차요금 : "+retpay+"원 입니다.");
+					System.out.println("현재까지 계산할 주차요금 : "+retpay+"원 입니다.");
 					break;
 				}
 			}
@@ -161,8 +159,6 @@ public class CarParkingCustomMge {
     
     public int calPay(String intTime, String ouTime) {
     	int ret=0;
-//		String intTime = "01:00";
-//		String ouTime = "02:50";
 		LocalTime parkedAt = LocalTime.parse(intTime);
 		LocalTime exitAt = LocalTime.parse(ouTime);
 		int amount = (int)Duration.between(parkedAt, exitAt).toMinutes(); //Duration, LocalTime을 통해 문자열로 주어진 시간의 차(분)를 구함
@@ -177,12 +173,13 @@ public class CarParkingCustomMge {
     }
     
     public String curTime() {
-    	String temp_carouttime = "0";
+    	String temp_carouttime = null;
 		// 출차시간 구하기
 		temp_carouttime = "0"+now.getMinute(); 
 		temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-2, temp_carouttime.length());
 		temp_carouttime = now.getHour() +":"+temp_carouttime;
 		temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-5, temp_carouttime.length());
+
 		return temp_carouttime;
     }
 }

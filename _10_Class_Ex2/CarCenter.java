@@ -77,7 +77,6 @@ public class CarCenter {
 		}
 
 	}
-
 	public void carMod() {
 		// 시나리오 정의
 		// 번호로 수정할 자동차 객체를 찾는다.
