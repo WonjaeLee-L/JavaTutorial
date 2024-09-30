@@ -13,7 +13,7 @@ public class CarParkingFileRead {
 	}
 	
 	public boolean CarParkingRead() {
-		String filePath = "C:\\Data\\20240801_tr\\JavaTu2\\src\\_13_Arraylist_Ex2";
+		String filePath = "D:\\Workspace\\java_src\\JavaTutorial\\src\\_13_Arraylist_Ex2";
 		
 		try {
 			String carOne[] = new String[5];
@@ -27,6 +27,9 @@ public class CarParkingFileRead {
 //		    		System.out.print(carOne[i]+" ");
 //		    	}
 //		    	System.out.println();
+		    	
+		    	
+		    	
 
 		    	CarParkingOne car = new CarParkingOne();
 		    	car.setCarInTime(carOne[0]);

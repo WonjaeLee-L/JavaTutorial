@@ -21,9 +21,9 @@ public class CarParkingMain {
 			System.out.println();
 			System.out.println("1. 고객 메뉴");
 			System.out.println("2. 관리자 메뉴");
-			System.out.println("3. 차량 data 일괄 등록");
+			System.out.println("3. data 읽기");
 			System.out.println("0. 프로그램 종료");
-			System.out.print("  선택 >> ");
+			System.out.print("  선택 >>");
 			
 			String num = in.nextLine();
 			if(num.equals("1")) {
