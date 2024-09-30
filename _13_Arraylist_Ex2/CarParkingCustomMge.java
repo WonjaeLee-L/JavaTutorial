@@ -29,7 +29,7 @@ public class CarParkingCustomMge {
 			if(num.equals("1")) {
 				addCar();
 			} else if(num.equals("2")) {
-				serchCar();
+				searchCar();
 			} else if(num.equals("3")) {
 				delCar();
 			} else if(num.equals("0")) {
@@ -133,7 +133,7 @@ public class CarParkingCustomMge {
     }	// 차량번호 찾기
 
     
-    public void serchCar() {
+    public void searchCar() {
     	System.out.println("<차량조회>");
     	String temp_carnum = null;
     	int caridx =-1;
@@ -157,10 +157,10 @@ public class CarParkingCustomMge {
     	}	
     } // 고객 조회
     
-    public int calPay(String intTime, String ouTime) {
+    public int calPay(String inTime, String outTime) {
     	int ret=0;
-		LocalTime parkedAt = LocalTime.parse(intTime);
-		LocalTime exitAt = LocalTime.parse(ouTime);
+		LocalTime parkedAt = LocalTime.parse(inTime);
+		LocalTime exitAt = LocalTime.parse(outTime);
 		int amount = (int)Duration.between(parkedAt, exitAt).toMinutes(); //Duration, LocalTime을 통해 문자열로 주어진 시간의 차(분)를 구함
 //		System.out.println(amount);
 		if (amount > 30) {
