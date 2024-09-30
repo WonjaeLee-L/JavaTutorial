@@ -177,7 +177,7 @@ public class CarParkingCustomMge {
 		// 출차시간 구하기
 		temp_carouttime = "0"+now.getMinute(); 
 		temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-2, temp_carouttime.length());
-		temp_carouttime = now.getHour() +":"+temp_carouttime;
+		temp_carouttime = "0"+now.getHour() +":"+temp_carouttime;
 		temp_carouttime = temp_carouttime.substring(temp_carouttime.length()-5, temp_carouttime.length());
 
 		return temp_carouttime;
