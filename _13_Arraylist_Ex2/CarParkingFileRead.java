@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class CarParkingFileRead {
 	ArrayList<CarParkingOne> carList = null;
+	CarParkingCustomMge cpcu = new CarParkingCustomMge();
 	
 	public CarParkingFileRead() {
 		// TODO Auto-generated constructor stub
@@ -14,7 +15,7 @@ public class CarParkingFileRead {
 	
 	public boolean CarParkingRead() {
 		String filePath = "D:\\Workspace\\java_src\\JavaTutorial\\src\\_13_Arraylist_Ex2";
-		
+//		String filePath = "C:\\Data\\tr_20240801\\JavaTu2\\src\\_13_Arraylist_Ex2";
 		try {
 			String carOne[] = new String[5];
 			int tot_cnt=0;
@@ -28,9 +29,10 @@ public class CarParkingFileRead {
 //		    	}
 //		    	System.out.println();
 		    	
-		    	
-		    	
-
+//		    	if(cpcu.findCar(carOne[2]) == -1) {
+//		    		
+//		    	}
+		    	// 일괄 등록 시에 차 번호 중복 문제 해결 하기
 		    	CarParkingOne car = new CarParkingOne();
 		    	car.setCarInTime(carOne[0]);
 		    	car.setCarOutTime(carOne[1]);
@@ -39,6 +41,8 @@ public class CarParkingFileRead {
 		    	car.setCarpay(Integer.parseInt(carOne[4]));
 		    	carList.add(car);
 		    	tot_cnt++;
+		    	
+
 		    }
 		    myReader.close();
 		    System.out.println("총 "+tot_cnt+"건 입력되었습니다");
