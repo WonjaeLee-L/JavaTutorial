@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class MainMenu {
 	// 의존관계 설정 시작
-	EventAdmin eventAdm = null;
-	MemberAdmin memberAdm = null;
+	private EventAdmin eventAdm = null;
+	private MemberAdmin memberAdm = null;
 
 	// 의존관계 변수만 설정하고 주소를
 	// 저장하는 방법은 직접 객체를 만들거나

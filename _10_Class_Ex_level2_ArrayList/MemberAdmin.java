@@ -10,7 +10,9 @@ public class MemberAdmin {
 	// 배열도 객체입니다.. mlist는 참조변수이고 MemberOne객체의 주소를
 	// 저장한 배열의 주소를 저장하고 있다.
 	// MemberOne[] mlist = new MemberOne[5];
+	private final int MAXMEMBERCOUNT = 10;
 	ArrayList<MemberOne> mlist = new ArrayList<>();
+	private EventAdmin eventAdmin = null;
 
 	MemberAdmin() {
 		// menu();
@@ -34,9 +36,9 @@ public class MemberAdmin {
 		}
 	}
 
-	public int duplexIDcheck(String id) {
+	private int duplexIDcheck(String id) {
 		for (int i = 0; i < mlist.size(); i++) {
-			if (mlist.get(i).id.equals(id)) {
+			if (mlist.get(i).getId().equals(id)) {
 				return 1;
 			}
 		}
@@ -60,10 +62,12 @@ public class MemberAdmin {
 		if (duplexIDcheck(id) == 1) {
 			System.out.println("입력한 아이디는 중복됨");
 		} else {
-			temp.id = id;
+			temp.setId(id);
+			// temp.id = id;
 			System.out.println("이름을 입력하세요");
 			String name = in.nextLine();
-			temp.name = name;
+			temp.setName(name);
+			// temp.name = name;
 
 //			for(int i=0; i < mlist.length; i++) {
 //				if(mlist[i]==null) {
@@ -87,6 +91,11 @@ public class MemberAdmin {
 //				mlist[i].prt();
 //			}
 //		}
+
+	}
+
+	public void setEvent(EventAdmin eventAdm) {
+		eventAdmin = eventAdm;
 
 	}
 
