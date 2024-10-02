@@ -8,7 +8,7 @@ public class E_manage {
 	Scanner in = new Scanner(System.in);
 
 	public E_manage() {
-		
+
 	}
 
 	public void e_e() { // 이벤트 정보 남기기 위해 E_manage() 메서드를 비우고 메서드 새로 생성

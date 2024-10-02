@@ -22,27 +22,27 @@ public class test0913_nex {
 		// 129의 제네레이터는 123
 		// i = g + (g/1000+(g/100)%10+(g%100)/10+g%10)
 		// 각 자리 숫자를 나누는 것은, %와 /를 이용하면 가능하다.
-		// 
-		
+		//
+
 		// 공식 확인
 //		int g = 1234;
 //		int i = 0;
 //		i=g + (g/1000)+((g/100)%10)+((g%100)/10)+(g%10);
 //		System.out.println(i);
-		
+
 		int cnt = 0;
-		int sum =  0;
-		for(int j=0; j<5000; j++) {
-			for(int k=0; k<6000; k++) {
-				int sumK = (k + (k/1000)+((k/100)%10)+((k%100)/10)+(k%10));
-				if(j == sumK) {
-					cnt=1;
+		int sum = 0;
+		for (int j = 0; j < 5000; j++) {
+			for (int k = 0; k < 6000; k++) {
+				int sumK = (k + (k / 1000) + ((k / 100) % 10) + ((k % 100) / 10) + (k % 10));
+				if (j == sumK) {
+					cnt = 1;
 				}
 			}
-			if(cnt==0) {
+			if (cnt == 0) {
 				sum += j;
 			}
-			cnt=0;	
+			cnt = 0;
 		}
 		System.out.println(sum);
 	}

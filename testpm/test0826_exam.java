@@ -18,16 +18,7 @@ public class test0826_exam {
 			}
 		}
 		System.out.println("길이는 " + sumCnt);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
 }

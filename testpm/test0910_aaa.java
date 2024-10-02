@@ -6,12 +6,7 @@ public class test0910_aaa {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int[][] a = { 
-				{ 12, 12, 12, 4 }, 
-				{ 1, 1, 1, 4 }, 
-				{ 1, 13, 13, 13 }, 
-				{ 14, 17, 13, 19 }, 
-				{ 14, 22, 13, 24 },
+		int[][] a = { { 12, 12, 12, 4 }, { 1, 1, 1, 4 }, { 1, 13, 13, 13 }, { 14, 17, 13, 19 }, { 14, 22, 13, 24 },
 				{ 14, 14, 14, 4 } };
 		int nNum = in.nextInt();
 		in.nextLine();

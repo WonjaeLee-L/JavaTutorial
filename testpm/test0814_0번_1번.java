@@ -10,10 +10,10 @@ public class test0814_0번_1번 {
 		System.out.println("숫자를 입력하세요");
 		Scanner in = new Scanner(System.in);
 		int k = in.nextInt();
-		
-		if(k%2==0) {
+
+		if (k % 2 == 0) {
 			System.out.println("짝수");
-		}else {
+		} else {
 			System.out.println("홀수");
 		}
 		System.out.println("1번.");
