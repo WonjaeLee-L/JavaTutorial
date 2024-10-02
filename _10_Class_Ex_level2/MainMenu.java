@@ -13,7 +13,7 @@ public class MainMenu {
 //	(2) EventAdmin eventAdm = new EventAdmin();
 //	(2) MemberAdmin memberAdm = new MemberAdmin();
 	// 메인 메뉴라는 객체가 생성될 때, 멤버변수가 각각 한 번 만들어진다.
-	
+
 	EventAdmin eventAdm = null;
 	MemberAdmin memberAdm = null;
 	// (3) 마지막 방법
@@ -25,8 +25,6 @@ public class MainMenu {
 		// 예를 들면, 데이터베이스에서 값을 가져와서 초기값을 결정하는 것이다.
 		// 메뉴는 초기화 작업이라고 보기 어렵다.
 		// 별도로 메서드 처리 한다.
-
-		
 
 		if (eventAdm == null) {
 			eventAdm = new EventAdmin();
@@ -55,13 +53,13 @@ public class MainMenu {
 //				(2) memberAdm.menu();
 				// 위에서 만든 (멤버변수가 생성될 때 만들어진) 객체를 참조하여 메뉴라는 메서드를 호출하여
 				// 문제를 해결할 수 있다.
-				
+
 				memberAdm.menu();
 				// (3)
 			} else if (num == 2) {
 //				(1) eventAdm = new EventAdmin();
 //				(2) eventAdm.menu();
-				
+
 				eventAdm.menu();
 				// (3)
 			} else if (num == 3) {

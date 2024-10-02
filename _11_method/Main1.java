@@ -8,13 +8,13 @@ public class Main1 {
 		t.setName("lee");
 		System.out.println(t.name);
 		System.out.println(t.getName());
-		String resultName = t.getName2("1122"); 
-		if(resultName!=null) {
+		String resultName = t.getName2("1122");
+		if (resultName != null) {
 			System.out.println(resultName);
-		}else {
+		} else {
 			System.out.println("비번틀림");
 		}
-		
+
 		System.out.println(t.maskName(" wonjae"));
 
 	}

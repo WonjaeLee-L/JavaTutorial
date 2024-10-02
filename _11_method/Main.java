@@ -50,8 +50,7 @@ public class Main {
 		// 위 샘플에서는 [개나리야]를 가져옵니다.
 		// 이 문제는 개나리야부터 잘라내면 된다. > substring
 		// 시작점은 indexOf(w)로 하고, 끝점은 indexOf(" ")로
-		System.out.println(title.substring
-				(title.indexOf(w), title.indexOf(" ", title.indexOf(w))));
+		System.out.println(title.substring(title.indexOf(w), title.indexOf(" ", title.indexOf(w))));
 
 	}
 

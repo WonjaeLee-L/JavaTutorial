@@ -1,4 +1,5 @@
 package _10_Class_Ex_level2_ArrayList;
+
 //시작 클래스
 public class Main {
 

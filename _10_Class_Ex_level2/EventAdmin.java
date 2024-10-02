@@ -5,7 +5,7 @@ import java.util.Scanner;
 // 이벤트관리 클래스
 public class EventAdmin {
 	EventOne[] elist = new EventOne[5];
-	
+
 	EventAdmin() {
 //		menu();
 	}

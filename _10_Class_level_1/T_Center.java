@@ -55,8 +55,8 @@ public class T_Center {
 			String mnum = tlist[i].getTnum();
 			if (mnum.equals(modNum)) {
 //			if (tlist[i].tNum.equals(modNum)) {		// -> 이렇게 코드 짜지 말고 위에 두 줄처럼
-													// 이건 T_one에 직접 접근해서 가져오는 것. -> 안좋음
-													// 달라고 부탁하는 기능 메서드를 만들어서 해결
+				// 이건 T_one에 직접 접근해서 가져오는 것. -> 안좋음
+				// 달라고 부탁하는 기능 메서드를 만들어서 해결
 				// 기차 번호가 유니크하다는 것은 뒤에 있는 기차 번호와 중복이 될 수 없다는 것
 				// 그래서 바로 수정 하도록 한다.
 				System.out.println("수정 시간 입력");

@@ -17,7 +17,6 @@ public class T_main {
 
 //		 ** 참조 가능하게 만드는 법(주입 받기 : 개발자가 객체를 함부로 만들지 않는다.) -> 2. 주소 값을 가져온다. 
 //		T_Center tcenter1 = tcenter;	// 이렇게 주입 받으면 tcenter1에서도 변화를 알 수 있다.
-		
 
 	}
 }
