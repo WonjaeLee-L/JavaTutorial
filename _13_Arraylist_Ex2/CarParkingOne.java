@@ -8,7 +8,7 @@ public class CarParkingOne {
 	private int carpay = 0;
 
 	public CarParkingOne() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public void prt() {

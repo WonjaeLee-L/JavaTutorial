@@ -2,7 +2,7 @@ package _13_Arraylist_Ex2;
 
 import java.util.Scanner;
 
-public class CarParkingMain {
+public class CarParkingMain { 
 
 	public static void main(String[] args) {
 		// 주차장관리 프로그램

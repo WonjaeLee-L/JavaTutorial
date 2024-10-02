@@ -14,7 +14,7 @@ public class CarParkingCustomMge {
 	ArrayList<CarParkingOne> outList = new ArrayList<>();
 
 	public CarParkingCustomMge() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public void menuCustom() {

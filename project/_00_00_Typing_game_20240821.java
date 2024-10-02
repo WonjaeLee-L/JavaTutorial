@@ -65,12 +65,12 @@ public class _00_00_Typing_game_20240821 {
 			System.out.println("★타자 게임★");
 			System.out.println("시작하시겠습니까?(시작/종료)");
 			String word = in.nextLine();
-			
+
 			// 초기 location은 0, 마지막 난이도 클리어 후 location을 0으로 선언
 			// 게임 중 돌아올 경우 난이도 선택 없이 진행(점수 조건에 따라 자동으로 레벨 변경)
 			if (word.equals("시작") && (location != 0)) {
 				System.out.println("게임을 시작합니다.");
-				
+
 				// 처음 시작하는 게임은 난이도 선택 가능
 			} else if (word.equals("시작")) {
 				System.out.println("게임을 시작합니다.");

@@ -10,7 +10,7 @@ public class CarParkingFileRead {
 	CarParkingCustomMge cpcu = new CarParkingCustomMge();
 
 	public CarParkingFileRead() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public boolean CarParkingRead() {

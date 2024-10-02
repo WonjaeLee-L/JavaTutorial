@@ -9,7 +9,7 @@ public class CarParkingMge {
 	ArrayList<CarParkingOne> outList = null;
 
 	public CarParkingMge() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public void menuMager() {
