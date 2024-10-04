@@ -46,7 +46,17 @@ public class MainMenu {
 	}
 
 	private void loginProcess() {
-
+		Scanner in = new Scanner(System.in);
+		System.out.print("로그인 ID입력 >> ");
+		String id = in.nextLine();
+		nowUser = stuManager.loginID(id);
+		if(nowUser == null) {
+			System.out.println("아이디 없음");
+		}else {
+			System.out.println("로그인 성공! 메뉴로 이동");
+			nowUser.menu(partManager);
+			// nowUser가 menu 메서드를 콜할때 partManager 주소를 넘긴 것
+		}
 	}
 
 	private void newin() {

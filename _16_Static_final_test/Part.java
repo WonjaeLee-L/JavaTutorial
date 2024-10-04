@@ -5,6 +5,10 @@ public class Part {
 	private String className = null;
 	private String partPro = null;
 
+	public void prt() {
+		System.out.println("과목명 : " + partName);		
+	}
+
 	public String getPartName() {
 		return partName;
 	}
